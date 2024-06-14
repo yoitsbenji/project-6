@@ -1,18 +1,20 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { colors } from '../../../styles'
 
 export const Card = styled.div`
-  background-color: ${colors.lightBlue};
-  border-radius: 14px;
-  align-itens: center;
-  padding: 10px;
+  background-color: ${colors.pink};
+  color: ${colors.cream};
+  width: 330px;
+  height: 430px;
   position: relative;
+  border: solid ${colors.pink} 1px;
+  margin-top: 20px;
 `
 
 export const Image = styled.img`
   width: 100%;
-  height: 300px;
-  border-radius: 7px;
+  height: 250px;
+  padding: 8px;
 `
 
 export const TagPosition = styled.div`
@@ -25,22 +27,27 @@ export const Title = styled.h3`
   font-size: 18px;
   font-weight: bold;
   display: block;
-  margin-top: 20px;
-  margin-bottom: 14px;
+  margin-left: 8px;
 `
 
 export const Description = styled.p`
   margin-top: 20px;
   font-size: 14px;
+  padding: 0 8px;
+  line-height: 1.6;
 `
 
 export const Click = styled.button`
-  background-color: ${colors.yellow};
-  padding: 6px 8px;
+  background-color: ${colors.cream};
+  color: ${colors.pink};
+  padding: 5px;
+  width: 310px;
+  margin: 0 8px;
   border: none;
+  font-weight: bold;
   display: block;
-  color: ${colors.white};
-  margin-top: 26px;
-  border-radius: 5px;
   cursor: pointer;
+  text-decoration: none;
+  bottom: 5px;
+  position: absolute;
 `

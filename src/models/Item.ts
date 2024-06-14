@@ -2,7 +2,7 @@ class Item {
   id: number
   title: string
   category?: string
-  system: string
+  rating: string
   description: string
   infos?: string[]
   image: string
@@ -10,7 +10,7 @@ class Item {
   constructor(
     id: number,
     title: string,
-    system: string,
+    rating: string,
     description: string,
     image: string,
     category?: string,
@@ -19,7 +19,7 @@ class Item {
     this.id = id
     this.title = title
     this.category = category
-    this.system = system
+    this.rating = rating
     this.description = description
     this.infos = infos
     this.image = image

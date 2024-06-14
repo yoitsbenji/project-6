@@ -1,76 +1,70 @@
 import ProductList from './ProductList'
 
-import cpu from '../../assets/images/cpu.png'
-import graphicard from '../../assets/images/rtx.jpg'
-import motherboard from '../../assets/images/motherboard.jpeg'
-import gabinetes from '../../assets/images/pc.jpg'
-import peripherals from '../../assets/images/peripherals.jpg'
-import ram from '../../assets/images/ram.jpg'
+import pasta from '../../assets/images/pasta.png'
+import sushi from '../../assets/images/sushi.png'
 import Item from '../../models/Item'
 import Top from './Header'
 
 const line1: Item[] = [
   {
     id: 1,
-    title: 'Processadores',
-    system: 'PC',
+    title: 'Hioki Sushi ',
+    rating: '8.3',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum, dolor a porta molestie, sapien risus tincidunt magna, id finibus eros sem vitae sapien. Suspendisse sed purus vel diam ultrices eleifend quis id tortor. In placerat neque eget tortor lobortis, at vestibulum quam egestas. Cras congue facilisis ligula, a tristique mauris maximus in. Maecenas in dictum dui',
-    infos: [],
-    image: cpu
+      'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!',
+    infos: ['Destaque da semana', 'Japonesa'],
+    image: sushi
   },
   {
     id: 2,
-    title: 'Placa-mãe',
-    system: 'PC',
+    title: 'La Dolce Vita Trattoria',
+    rating: '9.1',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum, dolor a porta molestie, sapien risus tincidunt magna, id finibus eros sem vitae sapien. Suspendisse sed purus vel diam ultrices eleifend quis id tortor. In placerat neque eget tortor lobortis, at vestibulum quam egestas. Cras congue facilisis ligula, a tristique mauris maximus in. Maecenas in dictum dui',
+      'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
     infos: [],
-    image: motherboard
+    image: pasta
   }
 ]
 
 const line2: Item[] = [
   {
     id: 3,
-    title: 'Memória RAM',
-    system: 'PC',
+    title: 'La Dolce Vita Trattoria',
+    rating: '9.1',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum, dolor a porta molestie, sapien risus tincidunt magna, id finibus eros sem vitae sapien. Suspendisse sed purus vel diam ultrices eleifend quis id tortor. In placerat neque eget tortor lobortis, at vestibulum quam egestas. Cras congue facilisis ligula, a tristique mauris maximus in. Maecenas in dictum dui',
+      'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
     infos: [],
-    image: ram
+    image: pasta
   },
   {
     id: 4,
-    title: 'Placa de Vídeo',
-    system: 'PC',
+    title: 'La Dolce Vita Trattoria',
+    rating: '9.1',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum, dolor a porta molestie, sapien risus tincidunt magna, id finibus eros sem vitae sapien. Suspendisse sed purus vel diam ultrices eleifend quis id tortor. In placerat neque eget tortor lobortis, at vestibulum quam egestas. Cras congue facilisis ligula, a tristique mauris maximus in. Maecenas in dictum dui',
+      'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
     infos: [],
-    image: graphicard
+    image: pasta
   }
 ]
 
 const line3: Item[] = [
   {
-    id: 6,
-    title: 'Gabinetes',
-    system: 'PC',
+    id: 5,
+    title: 'La Dolce Vita Trattoria',
+    rating: '9.1',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum, dolor a porta molestie, sapien risus tincidunt magna, id finibus eros sem vitae sapien. Suspendisse sed purus vel diam ultrices eleifend quis id tortor. In placerat neque eget tortor lobortis, at vestibulum quam egestas. Cras congue facilisis ligula, a tristique mauris maximus in. Maecenas in dictum dui',
-
+      'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
     infos: [],
-    image: gabinetes
+    image: pasta
   },
   {
-    id: 7,
-    title: 'Periféricos',
-    system: 'PC & Consoles',
+    id: 6,
+    title: 'La Dolce Vita Trattoria',
+    rating: '9.1',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum, dolor a porta molestie, sapien risus tincidunt magna, id finibus eros sem vitae sapien. Suspendisse sed purus vel diam ultrices eleifend quis id tortor. In placerat neque eget tortor lobortis, at vestibulum quam egestas. Cras congue facilisis ligula, a tristique mauris maximus in. Maecenas in dictum dui',
-
+      'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
     infos: [],
-    image: peripherals
+    image: pasta
   }
 ]
 

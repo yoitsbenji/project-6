@@ -1,8 +1,8 @@
 import Item from '../../../models/Item'
 import { Container } from '../../../styles'
-import Product from '../../../components/Products'
+import Product from '../Products'
 import { Banner, List, Section, SubSubTitle, SubTitle } from './styles'
-import banner from '../../../assets/images/banner.png'
+import pasta from '../../../assets/images/pasta.png'
 
 export type Props = {
   background: 'blue' | 'lightBlue'
@@ -12,19 +12,18 @@ export type Props = {
 const ProductList = ({ background, item }: Props) => (
   <Section background={background}>
     <Banner>
-      <img src={banner} alt="Ryzen" />
+      <img src={pasta} alt="Pasta" />
     </Banner>
     <Container>
-      <SubTitle>Processadores</SubTitle>
-      <SubSubTitle>Ryzen AMD & Intel</SubSubTitle>
+      <SubTitle>Italiana</SubTitle>
+      <SubSubTitle>La Dolce Vita Trattoria</SubSubTitle>
       <List>
         {item.map((item) => (
           <Product
             key={item.id}
             image={item.image}
             title={item.title}
-            category={item.category}
-            system={item.system}
+            rating={item.rating}
             description={item.description}
             infos={item.infos}
           />

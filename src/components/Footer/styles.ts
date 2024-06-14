@@ -6,8 +6,8 @@ export const Footer = styled.div`
   text-align: center;
   padding: 80px;
   margin-top: 50px;
-  background-color: ${colors.darkblue};
-  color: ${colors.white};
+  background-color: ${colors.cream};
+  color: ${colors.pink};
   position: relative;
 `
 export const Title = styled.a`
@@ -15,12 +15,12 @@ export const Title = styled.a`
   margin: auto;
   font-weight: bold;
   text-decoration: none;
-  color: ${colors.white};
+  color: ${colors.pink};
   font-size: 30px;
   padding: 10px;
   width: 120px;
   height: 70px;
-  border: 4px solid ${colors.white};
+  border: 4px solid ${colors.pink};
 `
 
 export const Social = styled.div`

@@ -2,11 +2,11 @@ import styled from 'styled-components'
 import { createGlobalStyle } from 'styled-components'
 
 export const colors = {
-  darkblue: '#0d152a ',
-  blue: '#192a56',
-  lightBlue: '#273c75',
-  white: '#f5f6fa',
-  yellow: '#e1b12c'
+  cream: '#fae3cb',
+  white: '#fff',
+  lightCream: '#fef9f4 ',
+  pink: '#E66767',
+  font: '#f8ded5'
 }
 
 export const GlobalCss = createGlobalStyle`
@@ -15,12 +15,11 @@ export const GlobalCss = createGlobalStyle`
       padding: 0;
       box-sizing: border-box;
       font-family: "Inter", sans-serif;
-
     }
 
     body {
-      color: ${colors.white};
-      background-color: ${colors.blue};
+      color: ${colors.pink};
+      background-color: ${colors.lightCream};
     }`
 
 export const Container = styled.div`

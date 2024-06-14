@@ -2,24 +2,18 @@ import styled from 'styled-components'
 
 import { Props } from '.'
 import { colors } from '../../../styles'
-import { Card } from '../../../components/Products/styles'
 
 export const Section = styled.section<Omit<Props, 'title' | 'item'>>`
-  ackground-color: ${(props) =>
-    props.background === 'blue' ? colors.blue : colors.lightBlue};
-
-  ${Card} {
-    margin-top: 40px;
-    background-color: ${(props) =>
-      props.background === 'blue' ? colors.lightBlue : colors.blue};
-  }
+  margin-top: 0;
 `
 
 export const List = styled.ul`
+  margin: 40px 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 16px;
+  column-gap: 40px;
 `
+
 export const Banner = styled.div`
   height: 100%;
   postion: relative;
@@ -35,12 +29,14 @@ export const Banner = styled.div`
 export const SubTitle = styled.h3`
   position: absolute;
   top: 18vh;
-  font-size: 24px;
+  color: ${colors.white};
+  font-size: 32px;
+  font-weight: 100;
 `
 
 export const SubSubTitle = styled.h2`
   position: absolute;
   top: 48vh;
-  font-size: 24px;
-  font-weight: 100;
+  font-size: 32px;
+  color: ${colors.white};
 `

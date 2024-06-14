@@ -1,11 +1,11 @@
-import { Title, Header } from './styles'
+import { Title, Header, SubTitle } from './styles'
 
 const Top = () => (
   <Header>
-    <Title href="#">eShop</Title>
-    <h3>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi, excepturi.
-    </h3>
+    <Title href="#">eFood</Title>
+    <SubTitle>
+      <h3>Viva experiências gastronômicas no conforto da sua casa</h3>
+    </SubTitle>
   </Header>
 )
 

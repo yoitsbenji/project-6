@@ -1,6 +1,6 @@
 import Item from '../../../models/Item'
 import { Container } from '../../../styles'
-import Product from '../../../components/Products'
+import Product from '../Products'
 import { List, Section } from './styles'
 
 export type Props = {
@@ -17,8 +17,7 @@ const ProductList = ({ background, item }: Props) => (
             key={item.id}
             image={item.image}
             title={item.title}
-            category={item.category}
-            system={item.system}
+            rating={item.rating}
             description={item.description}
             infos={item.infos}
           />
