@@ -1,11 +1,11 @@
-import Item from '../../../models/Item'
+import { Food } from '../'
 import { Container } from '../../../styles'
 import Product from '../Products'
 import { List, Section } from './styles'
 
 export type Props = {
   background: 'blue' | 'lightBlue'
-  item: Item[]
+  item: Food[]
 }
 
 const ProductList = ({ background, item }: Props) => (
@@ -15,11 +15,12 @@ const ProductList = ({ background, item }: Props) => (
         {item.map((item) => (
           <Product
             key={item.id}
-            image={item.image}
-            title={item.title}
-            rating={item.rating}
+            item={item.rating}
             description={item.description}
-            infos={item.infos}
+            title={item.title}
+            cover={item.cover}
+            type={item.type}
+            menu={item.menu}
           />
         ))}
       </List>

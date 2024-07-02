@@ -11,7 +11,7 @@ export const colors = {
 
 export const GlobalCss = createGlobalStyle`
     * {
-      margin: 0 ;
+      margin: 0 auto;
       padding: 0;
       box-sizing: border-box;
       font-family: "Inter", sans-serif;

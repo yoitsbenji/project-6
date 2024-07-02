@@ -50,4 +50,68 @@ export const Click = styled.button`
   text-decoration: none;
   bottom: 5px;
   position: absolute;
+
+  &:hover {
+    background-color: ${colors.white};
+  }
+`
+
+export const Modal = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  display: none;
+  z-index: 1;
+
+  &.visible {
+  display: block;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.73);
+  }
+}`
+
+export const ModalContent = styled.div`
+  max-width: 960px;
+  position: relative;
+  display: flex;
+  margin: auto;
+  margin-top: 30vh;
+  padding: 30px;
+  background-color: ${colors.pink};
+  color: ${colors.white};
+  z-index: 1;
+
+  img {
+    width: 400px;
+  }
+`
+
+export const Text = styled.div`
+  display: block;
+  margin-left: 30px;
+
+  h4 {
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  ${Click} {
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin: 10px 0;
+  }
 `

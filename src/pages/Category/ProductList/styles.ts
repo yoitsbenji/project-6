@@ -36,7 +36,8 @@ export const SubTitle = styled.h3`
 
 export const SubSubTitle = styled.h2`
   position: absolute;
-  top: 48vh;
+  top: 36vh;
+  left: 10;
   font-size: 32px;
   color: ${colors.white};
 `

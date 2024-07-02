@@ -8,7 +8,7 @@ const Top = () => (
       <HList>
         <li>
           <Link to="/">
-            <Hlink href="#">Home</Hlink>
+            <Hlink href="#">Restaurantes</Hlink>
           </Link>
         </li>
         <li>
