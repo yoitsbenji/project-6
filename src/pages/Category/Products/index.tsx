@@ -16,19 +16,21 @@ import {
 
 import pizza from '../../../assets/images/pizza.png'
 
-const Product = ({ item }: Props) => {
+import { Props } from '../../Home/Products'
+
+const Product = ({ descricao, titulo, foto, tipo }: Props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
   return (
     <>
       <Card>
-        <Image src={item.cover} alt={item.title} />
+        <Image src={foto[0].url} alt={titulo} />
         <TagPosition>
-          {infos?.map((info) => (
-            <Tag key={info}>{info}</Tag>
+          {tipo?.map((tipo) => (
+            <Tag key={tipo}>{tipo}</Tag>
           ))}
         </TagPosition>
-        <Title>{title}</Title>
-        <Description>{description}</Description>
+        <Title>{titulo}</Title>
+        <Description>{descricao}</Description>
         <Link to="/categories">
           <Click type="button" onClick={() => setModalIsOpen(true)}>
             Adicionar ao Carrinho

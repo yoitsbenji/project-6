@@ -9,24 +9,34 @@ import {
   Image,
   Rating,
   RatingNote,
+  TagPosition,
   Title
 } from './styles'
 
-import { Props } from '../ProductList'
+import { Comida, CoverImg } from '..'
 
-const Product = ({ item }: Props) => {
+export type Props = {
+  titulo: string
+  tipo: string
+  avaliacao: string
+  descricao: string
+  item: Comida[]
+  foto: CoverImg[]
+}
+
+const Product = ({ avaliacao, descricao, titulo, foto, tipo }: Props) => {
   return (
     <Card>
-      <Image src={item.cover} alt={item.title} />
-      <RatingNote>{item.rating}</RatingNote>
-      {/* <TagPosition>
-        {infos?.map((info) => (
-          <Tag key={info}>{info}</Tag>
+      <Image src={foto[0].url} />
+      <RatingNote>{avaliacao}</RatingNote>
+      <TagPosition>
+        {tipo?.map((tipo) => (
+          <Tag key={tipo}>{tipo}</Tag>
         ))}
-      </TagPosition> */}
+      </TagPosition>
       <Rating src={Star} alt="Avaliação" />
-      <Title>{item.title}</Title>
-      <Description>{item.description}</Description>
+      <Title>{titulo}</Title>
+      <Description>{descricao}</Description>
       <Link to="/categories">
         <Click type="submit">Saiba mais</Click>
       </Link>

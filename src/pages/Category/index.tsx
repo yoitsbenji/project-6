@@ -1,11 +1,12 @@
-import { Food } from '../Home'
 import Top from './Header'
 import ProductList from './ProductList'
+
+import { Props } from '../Home/ProductList'
 
 const Category = ({ item }: Props) => (
   <>
     <Top />
-    <ProductList item={item.title} background="blue" />
+    <ProductList item={item} background="blue" />
   </>
 )
 

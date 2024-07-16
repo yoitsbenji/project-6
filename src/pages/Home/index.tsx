@@ -1,21 +1,32 @@
 import { useEffect, useState } from 'react'
 import ProductList from './ProductList'
-
 import Top from './Header'
 
-export type Food = {
-  id: number
-  title: string
-  highlight: boolean
+export interface CoverImg {
   type: string
-  rating: number
-  description: string
-  cover: string
-  menu?: []
+  url: string
+}
+
+export type Comida = {
+  id: number
+  titulo: string
+  destacado: boolean
+  tipo: string
+  avaliacao: string
+  descricao: string
+  capa: CoverImg[]
+  cardapio: {
+    foto: CoverImg[]
+    preco: number
+    id: number
+    nome: string
+    descricao: string
+    porcao: string
+  }
 }
 
 const Home = () => {
-  const [food, setFood] = useState<Food[]>([])
+  const [food, setFood] = useState<Comida[]>([])
 
   useEffect(() => {
     fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
