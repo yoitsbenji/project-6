@@ -13,28 +13,35 @@ import {
   Title
 } from './styles'
 
-import { Comida, CoverImg } from '..'
+import { Comida } from '..'
 
 export type Props = {
   titulo: string
   tipo: string
   avaliacao: string
+  foto: string
   descricao: string
   item: Comida[]
-  foto: CoverImg[]
 }
 
-const Product = ({ avaliacao, descricao, titulo, foto, tipo }: Props) => {
+const Product = ({ avaliacao, descricao, titulo, tipo, foto }: Props) => {
+  const getDescricao = (descricao: string) => {
+    if (descricao.length > 195) {
+      return descricao.slice(0, 195) + '...'
+    }
+    return descricao
+  }
+
   return (
     <Card>
-      <Image src={foto} />
+      <Image src={foto} alt={titulo} />
       <RatingNote>{avaliacao}</RatingNote>
       <TagPosition>
         <Tag key={tipo}>{tipo}</Tag>
       </TagPosition>
       <Rating src={Star} alt="Avaliação" />
       <Title>{titulo}</Title>
-      <Description>{descricao}</Description>
+      <Description>{getDescricao(descricao)}</Description>
       <Link to="/categories">
         <Click type="submit">Saiba mais</Click>
       </Link>

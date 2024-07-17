@@ -18,7 +18,7 @@ const ProductList = ({ background, item }: Props) => {
               key={item.id}
               descricao={item.descricao}
               titulo={item.titulo}
-              foto={item.cardapio.foto}
+              foto={item.capa}
               avaliacao={item.avaliacao}
               tipo={item.tipo}
               item={[]}

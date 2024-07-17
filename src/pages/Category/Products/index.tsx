@@ -18,13 +18,13 @@ import pizza from '../../../assets/images/pizza.png'
 
 import { Props } from '../../Home/Products'
 
-const Product = ({ descricao, titulo, foto, tipo }: Props) => {
+const Product = ({ descricao, titulo, tipo, foto }: Props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
 
   return (
     <>
       <Card>
-        <Image src={foto[0].url} alt={titulo} />
+        <Image src={foto} alt={titulo} />
         <TagPosition>
           <Tag key={tipo}>{tipo}</Tag>
         </TagPosition>

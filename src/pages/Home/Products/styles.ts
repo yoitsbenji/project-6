@@ -8,6 +8,7 @@ export const Card = styled.div`
   height: 450px;
   position: relative;
   border: solid ${colors.pink} 1px;
+  margin-bottom: 30px;
 `
 
 export const Image = styled.img`

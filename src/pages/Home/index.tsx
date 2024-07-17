@@ -3,6 +3,7 @@ import ProductList from './ProductList'
 import Top from './Header'
 
 export interface CoverImg {
+  type: 'image'
   url: string
 }
 
@@ -13,9 +14,9 @@ export type Comida = {
   tipo: string
   avaliacao: string
   descricao: string
-  capa: CoverImg
+  capa: string
   cardapio: {
-    foto: CoverImg
+    foto: string
     preco: number
     id: number
     nome: string
@@ -25,18 +26,18 @@ export type Comida = {
 }
 
 const Home = () => {
-  const [food, setFood] = useState<Comida[]>([])
+  const [homePage, sethomePage] = useState<Comida[]>([])
 
   useEffect(() => {
     fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
       .then((res) => res.json())
-      .then((res) => setFood(res))
+      .then((res) => sethomePage(res))
   }, [])
 
   return (
     <>
       <Top />
-      <ProductList item={food} background="blue" />
+      <ProductList item={homePage} background="blue" />
     </>
   )
 }
