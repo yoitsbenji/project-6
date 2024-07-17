@@ -20,14 +20,13 @@ import { Props } from '../../Home/Products'
 
 const Product = ({ descricao, titulo, foto, tipo }: Props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
+
   return (
     <>
       <Card>
         <Image src={foto[0].url} alt={titulo} />
         <TagPosition>
-          {tipo?.map((tipo) => (
-            <Tag key={tipo}>{tipo}</Tag>
-          ))}
+          <Tag key={tipo}>{tipo}</Tag>
         </TagPosition>
         <Title>{titulo}</Title>
         <Description>{descricao}</Description>

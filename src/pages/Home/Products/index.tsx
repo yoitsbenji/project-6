@@ -27,12 +27,10 @@ export type Props = {
 const Product = ({ avaliacao, descricao, titulo, foto, tipo }: Props) => {
   return (
     <Card>
-      <Image src={foto[0].url} />
+      <Image src={foto} />
       <RatingNote>{avaliacao}</RatingNote>
       <TagPosition>
-        {tipo?.map((tipo) => (
-          <Tag key={tipo}>{tipo}</Tag>
-        ))}
+        <Tag key={tipo}>{tipo}</Tag>
       </TagPosition>
       <Rating src={Star} alt="Avaliação" />
       <Title>{titulo}</Title>

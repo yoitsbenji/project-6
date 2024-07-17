@@ -3,7 +3,6 @@ import ProductList from './ProductList'
 import Top from './Header'
 
 export interface CoverImg {
-  type: string
   url: string
 }
 
@@ -14,9 +13,9 @@ export type Comida = {
   tipo: string
   avaliacao: string
   descricao: string
-  capa: CoverImg[]
+  capa: CoverImg
   cardapio: {
-    foto: CoverImg[]
+    foto: CoverImg
     preco: number
     id: number
     nome: string
