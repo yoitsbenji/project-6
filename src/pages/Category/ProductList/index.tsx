@@ -1,20 +1,11 @@
 import { Container } from '../../../styles'
-import { Comida } from '../../Home'
-import Product from '../Products'
+import Product, { Props } from '../Products'
 import { Banner, List, Section, SubSubTitle, SubTitle } from './styles'
 
-type Props = {
-  background?: 'blue' | 'lightBlue'
-  item: Comida[]
-  capa?: string
-  tipo?: string
-  titulo?: string
-}
-
-const ProductList = ({ background, item, capa, tipo, titulo }: Props) => {
+const ProductList = ({ capa, tipo, titulo, item }: Props) => {
   return (
     <>
-      <Section background={background}>
+      <Section>
         <Banner>
           <img src={capa} />
         </Banner>
@@ -24,13 +15,15 @@ const ProductList = ({ background, item, capa, tipo, titulo }: Props) => {
           <List>
             {item.map((item) => (
               <Product
-                key={item.id}
-                descricao={item.descricao}
-                titulo={item.titulo}
-                avaliacao={item.avaliacao}
-                tipo={item.tipo}
+                key={item.cardapio.id}
                 foto={item.cardapio.foto}
+                preco={item.cardapio.preco}
+                porcao={item.cardapio.porcao}
+                titulo={item.cardapio.nome}
+                tipo={''}
                 item={[]}
+                cardapio={[]}
+                descricao={''}
               />
             ))}
           </List>

@@ -16,12 +16,14 @@ import {
 import { Comida } from '..'
 
 export type Props = {
+  item: Comida[]
   titulo: string
   tipo: string
   avaliacao: string
   foto: string
   descricao: string
-  item: Comida[]
+  preco?: number
+  porcao?: string
 }
 
 const Product = ({ avaliacao, descricao, titulo, tipo, foto }: Props) => {

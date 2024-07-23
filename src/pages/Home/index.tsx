@@ -2,12 +2,11 @@ import { useEffect, useState } from 'react'
 import ProductList from './ProductList'
 import Top from './Header'
 
-export interface CoverImg {
-  type: 'image'
-  url: string
-}
-
 export type Comida = {
+  foto: string
+  preco: number
+  porcao: string
+  nome: string
   id: number
   titulo: string
   destacado: boolean
@@ -37,7 +36,7 @@ const Home = () => {
   return (
     <>
       <Top />
-      <ProductList item={homePage} background="blue" />
+      <ProductList item={homePage} />
     </>
   )
 }

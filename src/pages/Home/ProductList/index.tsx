@@ -4,13 +4,12 @@ import Product from '../Products'
 import { List, Section } from './styles'
 
 export type Props = {
-  background?: 'blue' | 'lightBlue'
   item: Comida[]
 }
 
-const ProductList = ({ background, item }: Props) => {
+const ProductList = ({ item }: Props) => {
   return (
-    <Section background={background}>
+    <Section>
       <Container>
         <List>
           {item.map((item) => (
