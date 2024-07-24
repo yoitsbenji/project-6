@@ -7,23 +7,23 @@ const ProductList = ({ capa, tipo, titulo, item }: Props) => {
     <>
       <Section>
         <Banner>
-          <img src={capa} />
+          <img src={item.capa} />
         </Banner>
         <Container>
           <SubTitle>{tipo}</SubTitle>
           <SubSubTitle>{titulo}</SubSubTitle>
           <List>
-            {item.map((produto) => (
-              <div key={produto.id}>
-                {produto.cardapio.map((cardapioItem) => (
+            {item.map((item) => (
+              <div key={item.id}>
+                {item.cardapio.map((cardapioItem) => (
                   <Product
-                    key={cardapioItem.id}
+                    key={item.id}
                     foto={cardapioItem.foto}
                     preco={cardapioItem.preco}
                     porcao={cardapioItem.porcao}
                     titulo={cardapioItem.nome}
                     descricao={cardapioItem.descricao}
-                    tipo={produto.tipo}
+                    tipo={item.tipo}
                     item={[]}
                   />
                 ))}

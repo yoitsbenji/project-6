@@ -13,15 +13,18 @@ const ProductList = ({ item }: Props) => {
       <Container>
         <List>
           {item.map((item) => (
-            <Product
-              key={item.id}
-              descricao={item.descricao}
-              titulo={item.titulo}
-              foto={item.capa}
-              avaliacao={item.avaliacao}
-              tipo={item.tipo}
-              item={[]}
-            />
+            <li key={item.id}>
+              <Product
+                id={item.id}
+                key={item.id}
+                descricao={item.descricao}
+                titulo={item.titulo}
+                foto={item.capa}
+                avaliacao={item.avaliacao}
+                tipo={item.tipo}
+                item={[]}
+              />
+            </li>
           ))}
         </List>
       </Container>

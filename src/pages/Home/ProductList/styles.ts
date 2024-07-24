@@ -10,4 +10,5 @@ export const List = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 16px;
+  list-style: none;
 `

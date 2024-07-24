@@ -8,7 +8,7 @@ import Bottom from './components/Footer'
 const Rotas = () => (
   <Routes>
     <Route path="/" element={<Home />} />
-    <Route path="/categories" element={<Category />} />
+    <Route path="/categories/:id" element={<Category />} />
   </Routes>
 )
 

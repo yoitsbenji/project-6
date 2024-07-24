@@ -24,9 +24,10 @@ export type Props = {
   descricao: string
   preco?: number
   porcao?: string
+  id: number
 }
 
-const Product = ({ avaliacao, descricao, titulo, tipo, foto }: Props) => {
+const Product = ({ avaliacao, descricao, titulo, tipo, foto, id }: Props) => {
   const getDescricao = (descricao: string) => {
     if (descricao.length > 195) {
       return descricao.slice(0, 195) + '...'
@@ -44,8 +45,8 @@ const Product = ({ avaliacao, descricao, titulo, tipo, foto }: Props) => {
       <Rating src={Star} alt="Avaliação" />
       <Title>{titulo}</Title>
       <Description>{getDescricao(descricao)}</Description>
-      <Link to="/categories">
-        <Click type="submit">Saiba mais</Click>
+      <Link to={`/categories/${id}`}>
+        <Click type="button">Saiba mais</Click>
       </Link>
     </Card>
   )
