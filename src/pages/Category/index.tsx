@@ -24,7 +24,6 @@ const Category = () => {
         capa={''}
         foto={''}
         descricao={''}
-        cardapio={[]}
       />
     </>
   )

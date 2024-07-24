@@ -17,7 +17,6 @@ import { Comida } from '../../Home'
 
 export type Props = {
   item: Comida[]
-  cardapio: Comida[]
   titulo?: string
   tipo: string
   capa?: string
@@ -30,8 +29,8 @@ export type Props = {
 const Product = ({ descricao, titulo, tipo, foto, preco, porcao }: Props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const getDescricao = (descricao: string) => {
-    if (descricao.length > 195) {
-      return descricao.slice(0, 195) + '...'
+    if (descricao.length > 160) {
+      return descricao.slice(0, 160) + '...'
     }
     return descricao
   }

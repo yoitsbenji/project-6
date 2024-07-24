@@ -13,18 +13,21 @@ const ProductList = ({ capa, tipo, titulo, item }: Props) => {
           <SubTitle>{tipo}</SubTitle>
           <SubSubTitle>{titulo}</SubSubTitle>
           <List>
-            {item.map((item) => (
-              <Product
-                key={item.cardapio.id}
-                foto={item.cardapio.foto}
-                preco={item.cardapio.preco}
-                porcao={item.cardapio.porcao}
-                titulo={item.cardapio.nome}
-                tipo={''}
-                item={[]}
-                cardapio={[]}
-                descricao={''}
-              />
+            {item.map((produto) => (
+              <div key={produto.id}>
+                {produto.cardapio.map((cardapioItem) => (
+                  <Product
+                    key={cardapioItem.id}
+                    foto={cardapioItem.foto}
+                    preco={cardapioItem.preco}
+                    porcao={cardapioItem.porcao}
+                    titulo={cardapioItem.nome}
+                    descricao={cardapioItem.descricao}
+                    tipo={produto.tipo}
+                    item={[]}
+                  />
+                ))}
+              </div>
             ))}
           </List>
         </Container>
