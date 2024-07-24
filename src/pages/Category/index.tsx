@@ -21,7 +21,6 @@ const Category = () => {
         item={categoryPage}
         titulo={''}
         tipo={''}
-        capa={''}
         foto={''}
         descricao={''}
       />

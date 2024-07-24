@@ -19,11 +19,11 @@ export type Props = {
   item: Comida[]
   titulo?: string
   tipo: string
-  capa?: string
   foto: string
   descricao: string
   preco?: number
   porcao?: string
+  capa?: string
 }
 
 const Product = ({ descricao, titulo, tipo, foto, preco, porcao }: Props) => {
@@ -44,11 +44,9 @@ const Product = ({ descricao, titulo, tipo, foto, preco, porcao }: Props) => {
         </TagPosition>
         <Title>{titulo}</Title>
         <Description>{getDescricao(descricao)}</Description>
-        <Link to="/categories">
-          <Click type="button" onClick={() => setModalIsOpen(true)}>
-            Adicionar ao Carrinho
-          </Click>
-        </Link>
+        <Click type="button" onClick={() => setModalIsOpen(true)}>
+          Adicionar ao Carrinho
+        </Click>
       </Card>
       <Modal className={modalIsOpen ? 'visible' : ''}>
         <ModalContent>
@@ -56,8 +54,8 @@ const Product = ({ descricao, titulo, tipo, foto, preco, porcao }: Props) => {
           <Text>
             <h4>{titulo}</h4>
             <p>{descricao}</p>
-            <p>{porcao}</p>
-            <Click>Adicionar ao carrinho - R$ {preco}</Click>
+            <p>Serve de {porcao}</p>
+            <Click>Adicionar ao carrinho - R$ {preco + '0'}</Click>
           </Text>
         </ModalContent>
         <div className="overlay" onClick={() => setModalIsOpen(false)}></div>

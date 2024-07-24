@@ -7,7 +7,7 @@ const ProductList = ({ capa, tipo, titulo, item }: Props) => {
     <>
       <Section>
         <Banner>
-          <img src={item.capa} />
+          <img src={capa} />
         </Banner>
         <Container>
           <SubTitle>{tipo}</SubTitle>

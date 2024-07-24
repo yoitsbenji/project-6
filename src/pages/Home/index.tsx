@@ -3,17 +3,17 @@ import ProductList from './ProductList'
 import Top from './Header'
 
 export type Comida = {
+  id: number
   foto: string
   preco: number
   porcao: string
   nome: string
-  id: number
+  capa: string
   titulo: string
   destacado: boolean
   tipo: string
   avaliacao: string
   descricao: string
-  capa: string
   cardapio: [
     {
       id: number
