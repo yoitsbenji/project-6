@@ -2,6 +2,15 @@ import { useEffect, useState } from 'react'
 import ProductList from './ProductList'
 import Top from './Header'
 
+export interface Cardapio {
+  id: number
+  foto: string
+  preco: number
+  nome: string
+  descricao: string
+  porcao: string
+}
+
 export type Comida = {
   id: number
   foto: string
@@ -14,16 +23,7 @@ export type Comida = {
   tipo: string
   avaliacao: string
   descricao: string
-  cardapio: [
-    {
-      id: number
-      foto: string
-      preco: number
-      nome: string
-      descricao: string
-      porcao: string
-    }
-  ]
+  cardapio: Cardapio[]
 }
 
 const Home = () => {

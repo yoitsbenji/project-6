@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
 import Tag from '../../../components/Tags'
@@ -18,12 +17,12 @@ import { Comida } from '../../Home'
 export type Props = {
   item: Comida[]
   titulo?: string
+  capa?: string
   tipo: string
   foto: string
   descricao: string
   preco?: number
   porcao?: string
-  capa?: string
 }
 
 const Product = ({ descricao, titulo, tipo, foto, preco, porcao }: Props) => {
