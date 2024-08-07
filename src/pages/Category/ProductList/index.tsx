@@ -16,13 +16,13 @@ const ProductList = ({ cardapio, capa, tipo, titulo, item }: Props) => {
     <>
       <Section>
         <Banner>
-          <img src={item.capa} />
+          <img src={capa} />
         </Banner>
         <Container>
           <SubTitle>{tipo}</SubTitle>
           <SubSubTitle>{titulo}</SubSubTitle>
           <List>
-            {item.cardapio.map((cardapioItem) => (
+            {cardapio.map((cardapioItem) => (
               <Product
                 key={cardapioItem.id}
                 foto={cardapioItem.foto}
