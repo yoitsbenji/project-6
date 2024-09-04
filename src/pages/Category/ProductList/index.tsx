@@ -7,11 +7,15 @@ export type Props = {
   item: Comida[]
   cardapio: Cardapio[]
   titulo?: string
-  capa?: string
+  capa: string
   tipo: string
 }
 
-const ProductList = ({ cardapio, capa, tipo, titulo, item }: Props) => {
+const ProductList = ({ cardapio, capa, tipo, titulo }: Props) => {
+  console.log('Cardapio:', cardapio)
+  console.log('Capa:', capa)
+  console.log('Tipo:', tipo)
+  console.log('Titulo:', titulo)
   return (
     <>
       <Section>
@@ -22,18 +26,19 @@ const ProductList = ({ cardapio, capa, tipo, titulo, item }: Props) => {
           <SubTitle>{tipo}</SubTitle>
           <SubSubTitle>{titulo}</SubSubTitle>
           <List>
-            {cardapio.map((cardapioItem) => (
-              <Product
-                key={cardapioItem.id}
-                foto={cardapioItem.foto}
-                preco={cardapioItem.preco}
-                porcao={cardapioItem.porcao}
-                titulo={cardapioItem.nome}
-                descricao={cardapioItem.descricao}
-                item={[]}
-                tipo={''}
-              />
-            ))}
+            {Array.isArray(cardapio) &&
+              cardapio.map((cardapioItem) => (
+                <Product
+                  key={cardapioItem.id}
+                  foto={cardapioItem.foto}
+                  preco={cardapioItem.preco}
+                  porcao={cardapioItem.porcao}
+                  titulo={cardapioItem.nome}
+                  descricao={cardapioItem.descricao}
+                  item={[]}
+                  tipo={tipo}
+                />
+              ))}
           </List>
         </Container>
       </Section>

@@ -8,18 +8,27 @@ import { useParams } from 'react-router-dom'
 
 const Category = () => {
   const { id } = useParams()
-  const [categoryPage, setcategoryPage] = useState<Comida[]>([])
+  const [categoryPage, setcategoryPage] = useState<Comida | null>(null)
 
   useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes/1')
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
       .then((res) => res.json())
       .then((res) => setcategoryPage(res))
   }, [id])
 
+  if (!categoryPage) {
+    return <h3>Carregando...</h3>
+  }
+
   return (
     <>
       <Top />
-      <ProductList item={categoryPage} tipo={''} cardapio={[]} capa={''} />
+      <ProductList
+        cardapio={categoryPage.cardapio}
+        capa={categoryPage.capa}
+        tipo={categoryPage.tipo}
+        item={[]}
+      />
     </>
   )
 }

@@ -35,6 +35,10 @@ const Home = () => {
       .then((res) => sethomePage(res))
   }, [])
 
+  if (!homePage) {
+    return <h3>Carregando...</h3>
+  }
+
   return (
     <>
       <Top />

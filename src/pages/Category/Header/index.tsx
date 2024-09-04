@@ -1,15 +1,13 @@
 import { Link } from 'react-router-dom'
 import { Container } from '../../../styles'
-import { Title, Header, HList, Hlink } from './styles'
+import { Title, Header, HList } from './styles'
 
 const Top = () => (
   <Header>
     <Container>
       <HList>
         <li>
-          <Link to="/">
-            <Hlink href="#">Restaurantes</Hlink>
-          </Link>
+          <Link to="/">Restaurantes</Link>
         </li>
         <li>
           <Title href="#">e-Shop</Title>
