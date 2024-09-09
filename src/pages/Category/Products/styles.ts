@@ -104,6 +104,15 @@ export const Box = styled.div`
   }
 `
 
+export const Exit = styled.div`
+  img {
+    width: 20px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+`
+
 export const Text = styled.div`
   display: block;
   margin-left: 30px;

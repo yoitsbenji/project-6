@@ -1,11 +1,12 @@
 import { useState } from 'react'
-
+import exit from '../../../assets/images/x.png'
 import Tag from '../../../components/Tags'
 import {
   Box,
   Card,
   Click,
   Description,
+  Exit,
   Image,
   Modal,
   ModalContent,
@@ -59,6 +60,13 @@ const Product = ({ descricao, titulo, tipo, foto, preco, porcao }: Props) => {
             <p>Serve de {porcao}</p>
             <Click>Adicionar ao carrinho - R$ {preco + '0'}</Click>
           </Text>
+          <Exit>
+            <img
+              src={exit}
+              alt="Click to exit"
+              onClick={() => setModalIsOpen(false)}
+            />
+          </Exit>
         </ModalContent>
         <div className="overlay" onClick={() => setModalIsOpen(false)}></div>
       </Modal>
