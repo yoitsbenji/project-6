@@ -13,7 +13,7 @@ export const Header = styled.div`
 export const HList = styled.ul`
   list-style: none;
   display: flex;
-  justify-content: space-between;
+  width: 75%;
 `
 
 export const Hlink = styled.a`
@@ -25,15 +25,14 @@ export const Hlink = styled.a`
 
 export const Title = styled.a`
   padding: 10px;
-  margin-left: 4em;
   font-size: 30px;
   font-weight: bold;
   text-decoration: none;
   color: ${colors.pink};
   background-color: ${colors.white};
+  border: 4px solid ${colors.pink};
   font-size: 30px;
   align-itens: center;
   width: 120px;
   height: 70px;
-  border: 4px solid ${colors.pink};
 `

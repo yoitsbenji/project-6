@@ -6,7 +6,7 @@ import { Banner, List, Section, SubSubTitle, SubTitle } from './styles'
 export type Props = {
   item: Comida[]
   cardapio: Cardapio[]
-  titulo?: string
+  titulo: string
   capa: string
   tipo: string
 }

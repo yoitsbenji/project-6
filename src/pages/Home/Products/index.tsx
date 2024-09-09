@@ -39,10 +39,10 @@ const Product = ({ avaliacao, descricao, titulo, tipo, foto, id }: Props) => {
     <Card>
       <Image src={foto} alt={titulo} />
       <RatingNote>{avaliacao}</RatingNote>
+      <Rating src={Star} alt="Avaliação" />
       <TagPosition>
         <Tag key={tipo}>{tipo}</Tag>
       </TagPosition>
-      <Rating src={Star} alt="Avaliação" />
       <Title>{titulo}</Title>
       <Description>{getDescricao(descricao)}</Description>
       <Link to={`/categories/${id}`}>

@@ -28,7 +28,7 @@ export const Banner = styled.div`
 
 export const SubTitle = styled.h3`
   position: absolute;
-  top: 18vh;
+  top: 20vh;
   color: ${colors.white};
   font-size: 32px;
   font-weight: 100;
@@ -36,7 +36,7 @@ export const SubTitle = styled.h3`
 
 export const SubSubTitle = styled.h2`
   position: absolute;
-  top: 36vh;
+  top: 40vh;
   left: 10;
   font-size: 32px;
   color: ${colors.white};

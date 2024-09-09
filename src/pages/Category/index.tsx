@@ -28,6 +28,7 @@ const Category = () => {
         capa={categoryPage.capa}
         tipo={categoryPage.tipo}
         item={[]}
+        titulo={categoryPage.titulo}
       />
     </>
   )

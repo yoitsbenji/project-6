@@ -26,7 +26,7 @@ export const Rating = styled.img`
   width: 24px;
   position: absolute;
   right: 10px;
-  top: 22.4vh;
+  top: 28vh;
 `
 
 export const RatingNote = styled.div<Props>`
