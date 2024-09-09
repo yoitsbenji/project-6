@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import Tag from '../../../components/Tags'
 import {
+  Box,
   Card,
   Click,
   Description,
@@ -49,7 +50,9 @@ const Product = ({ descricao, titulo, tipo, foto, preco, porcao }: Props) => {
       </Card>
       <Modal className={modalIsOpen ? 'visible' : ''}>
         <ModalContent>
-          <img src={foto} alt={titulo} />
+          <Box>
+            <img src={foto} alt={titulo} />
+          </Box>
           <Text>
             <h4>{titulo}</h4>
             <p>{descricao}</p>

@@ -90,9 +90,17 @@ export const ModalContent = styled.div`
   background-color: ${colors.pink};
   color: ${colors.white};
   z-index: 1;
+`
+
+export const Box = styled.div`
+  width: 300px;
+  height: 300px;
+  display: flex;
 
   img {
-    width: 400px;
+    object-fit: cover;
+    width: 300px;
+    height: 300px;
   }
 `
 
@@ -111,7 +119,9 @@ export const Text = styled.div`
 
   ${Click} {
     font-size: 16px;
-    margin-bottom: 10px;
-    margin: 10px 0;
+    margin: 0;
+    bottom: 7vh;
+    padding: 2px;
+    width: 280px;
   }
 `
