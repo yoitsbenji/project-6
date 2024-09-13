@@ -14,6 +14,10 @@ export const HList = styled.ul`
   list-style: none;
   display: flex;
   width: 75%;
+
+  a {
+    cursor: pointer;
+  }
 `
 
 export const Hlink = styled.a`

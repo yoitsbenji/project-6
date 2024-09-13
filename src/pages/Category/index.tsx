@@ -1,22 +1,15 @@
-import { useEffect, useState } from 'react'
-
 import Top from './Header'
 import ProductList from './ProductList'
 
-import { Comida } from '../Home'
 import { useParams } from 'react-router-dom'
+
+import { useGetCategoriesQuery } from '../../services/api'
 
 const Category = () => {
   const { id } = useParams()
-  const [categoryPage, setcategoryPage] = useState<Comida | null>(null)
+  const { data: restaurant } = useGetCategoriesQuery(id!)
 
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((res) => setcategoryPage(res))
-  }, [id])
-
-  if (!categoryPage) {
+  if (!restaurant) {
     return <h3>Carregando...</h3>
   }
 
@@ -24,11 +17,11 @@ const Category = () => {
     <>
       <Top />
       <ProductList
-        cardapio={categoryPage.cardapio}
-        capa={categoryPage.capa}
-        tipo={categoryPage.tipo}
+        cardapio={restaurant.cardapio}
+        capa={restaurant.capa}
+        tipo={restaurant.tipo}
         item={[]}
-        titulo={categoryPage.titulo}
+        titulo={restaurant.titulo}
       />
     </>
   )

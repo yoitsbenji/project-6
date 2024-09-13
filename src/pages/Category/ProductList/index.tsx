@@ -35,8 +35,21 @@ const ProductList = ({ cardapio, capa, tipo, titulo }: Props) => {
                   porcao={cardapioItem.porcao}
                   titulo={cardapioItem.nome}
                   descricao={cardapioItem.descricao}
-                  item={[]}
                   tipo={tipo}
+                  item={{
+                    id: 0,
+                    foto: '',
+                    preco: 0,
+                    porcao: '',
+                    nome: '',
+                    capa: '',
+                    titulo: '',
+                    destacado: false,
+                    tipo: '',
+                    avaliacao: '',
+                    descricao: '',
+                    cardapio: []
+                  }}
                 />
               ))}
           </List>

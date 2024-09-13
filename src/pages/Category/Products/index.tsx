@@ -15,9 +15,11 @@ import {
   Title
 } from './styles'
 import { Comida } from '../../Home'
+import { useDispatch } from 'react-redux'
+import { add, open } from '../../../store/reducers/cart'
 
 export type Props = {
-  item: Comida[]
+  item: Comida
   titulo?: string
   capa?: string
   tipo: string
@@ -27,7 +29,22 @@ export type Props = {
   porcao?: string
 }
 
-const Product = ({ descricao, titulo, tipo, foto, preco, porcao }: Props) => {
+const Product = ({
+  descricao,
+  titulo,
+  tipo,
+  foto,
+  preco,
+  porcao,
+  item
+}: Props) => {
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    dispatch(add(item))
+    dispatch(open())
+  }
+
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const getDescricao = (descricao: string) => {
     if (descricao.length > 160) {
@@ -46,7 +63,7 @@ const Product = ({ descricao, titulo, tipo, foto, preco, porcao }: Props) => {
         <Title>{titulo}</Title>
         <Description>{getDescricao(descricao)}</Description>
         <Click type="button" onClick={() => setModalIsOpen(true)}>
-          Adicionar ao Carrinho
+          Ver mais
         </Click>
       </Card>
       <Modal className={modalIsOpen ? 'visible' : ''}>
@@ -58,7 +75,9 @@ const Product = ({ descricao, titulo, tipo, foto, preco, porcao }: Props) => {
             <h4>{titulo}</h4>
             <p>{descricao}</p>
             <p>Serve de {porcao}</p>
-            <Click>Adicionar ao carrinho - R$ {preco + '0'}</Click>
+            <Click onClick={addToCart}>
+              Adicionar ao carrinho - R$ {preco + '0'}
+            </Click>
           </Text>
           <Exit>
             <img
