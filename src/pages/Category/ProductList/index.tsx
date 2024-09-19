@@ -1,7 +1,7 @@
 import { Container } from '../../../styles'
 import { Cardapio, Comida } from '../../Home'
 import Product from '../Products'
-import { Banner, List, Section, SubSubTitle, SubTitle } from './styles'
+import { Banner, List, Section, Title } from './styles'
 
 export type Props = {
   item: Comida[]
@@ -16,6 +16,7 @@ const ProductList = ({ cardapio, capa, tipo, titulo }: Props) => {
   console.log('Capa:', capa)
   console.log('Tipo:', tipo)
   console.log('Titulo:', titulo)
+
   return (
     <>
       <Section>
@@ -23,8 +24,10 @@ const ProductList = ({ cardapio, capa, tipo, titulo }: Props) => {
           <img src={capa} />
         </Banner>
         <Container>
-          <SubTitle>{tipo}</SubTitle>
-          <SubSubTitle>{titulo}</SubSubTitle>
+          <Title>
+            <h2>{tipo}</h2>
+            <h3>{titulo}</h3>
+          </Title>
           <List>
             {Array.isArray(cardapio) &&
               cardapio.map((cardapioItem) => (
@@ -36,20 +39,7 @@ const ProductList = ({ cardapio, capa, tipo, titulo }: Props) => {
                   titulo={cardapioItem.nome}
                   descricao={cardapioItem.descricao}
                   tipo={tipo}
-                  item={{
-                    id: 0,
-                    foto: '',
-                    preco: 0,
-                    porcao: '',
-                    nome: '',
-                    capa: '',
-                    titulo: '',
-                    destacado: false,
-                    tipo: '',
-                    avaliacao: '',
-                    descricao: '',
-                    cardapio: []
-                  }}
+                  item={cardapioItem}
                 />
               ))}
           </List>

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import { Click } from '../../pages/Home/Products/styles'
 import trash from '../../assets/images/trash.png'
 
@@ -60,6 +60,9 @@ export const Product = styled.li`
   display: flex;
   position: relative;
   margin-bottom: 15px;
+  @media (max-width: ${breakpoints.desktop}) {
+    font-size: 14px;
+  }
 
   div {
     margin: 0 5px;

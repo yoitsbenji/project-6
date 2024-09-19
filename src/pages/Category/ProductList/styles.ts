@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { colors } from '../../../styles'
+import { breakpoints, colors } from '../../../styles'
 import { Props } from '../../Home/ProductList'
 
 export const Section = styled.section<Omit<Props, 'title' | 'item'>>`
@@ -12,6 +12,15 @@ export const List = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 40px;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    grid-template-columns: 1fr 1fr;
+    margin: 0;
+  }
+  @media (max-width: ${breakpoints.cell}) {
+    grid-template-columns: 1fr;
+    margin: 0;
+  }
 `
 
 export const Banner = styled.div`
@@ -26,18 +35,20 @@ export const Banner = styled.div`
   }
 `
 
-export const SubTitle = styled.h3`
-  position: absolute;
+export const Title = styled.div`
   top: 20vh;
-  color: ${colors.white};
-  font-size: 32px;
-  font-weight: 100;
-`
-
-export const SubSubTitle = styled.h2`
   position: absolute;
-  top: 40vh;
-  left: 10;
-  font-size: 32px;
-  color: ${colors.white};
+  display: block;
+
+  h2 {
+    color: ${colors.white};
+    margin-bottom: 15vh;
+    font-size: 32px;
+    font-weight: 100;
+  }
+
+  h3 {
+    font-size: 32px;
+    color: ${colors.white};
+  }
 `

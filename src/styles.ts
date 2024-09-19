@@ -9,6 +9,12 @@ export const colors = {
   font: '#f8ded5'
 }
 
+export const breakpoints = {
+  desktop: '1024px',
+  tablet: '768px',
+  cell: '480px'
+}
+
 export const GlobalCss = createGlobalStyle`
     * {
       margin: 0 auto;
@@ -25,4 +31,8 @@ export const GlobalCss = createGlobalStyle`
 export const Container = styled.div`
   width: 1024px;
   margin: 0 auto;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    width: 80%;
+  }
 `

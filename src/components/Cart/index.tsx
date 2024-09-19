@@ -11,15 +11,14 @@ import {
 } from './styles'
 import { RootReducer } from '../../store'
 import { close, remove } from '../../store/reducers/cart'
-
-export type Props = {
-  capa: string
-}
+import { Cardapio } from '../../pages/Home'
 
 const Cart = () => {
-  const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
+  const { isOpen, cartItems } = useSelector((state: RootReducer) => state.cart)
 
   const dispatch = useDispatch()
+
+  console.log('verificando:', cartItems)
 
   const closeCart = () => {
     dispatch(close())
@@ -29,9 +28,17 @@ const Cart = () => {
     dispatch(remove(id))
   }
 
+  const priceFormat = (preco = 0) => {
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    }).format(preco)
+  }
+
   const getTotalPrice = () => {
-    return items.reduce((acumulator, currentValue) => {
-      return (acumulator = currentValue.preco)
+    return cartItems.reduce((acumulator, currentValue) => {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      return (acumulator += currentValue.preco!)
     }, 0)
   }
 
@@ -40,7 +47,7 @@ const Cart = () => {
       <Overlay onClick={closeCart} />
       <Sidebar>
         <ul>
-          {items.map((item) => (
+          {cartItems.map((item) => (
             <Product key={item.id}>
               <ProductImage key={item.id}>
                 <img src={item.foto} />
@@ -55,7 +62,7 @@ const Cart = () => {
         </ul>
 
         <Prices>
-          Valor total <span>{getTotalPrice()}</span>
+          Valor total <span>{priceFormat(getTotalPrice())}</span>
         </Prices>
         <Click title="Clique aqui para continuar" type="button">
           Continuar para a entrega

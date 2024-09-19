@@ -8,7 +8,6 @@ import {
   Description,
   Image,
   Rating,
-  RatingNote,
   TagPosition,
   Title
 } from './styles'
@@ -38,12 +37,16 @@ const Product = ({ avaliacao, descricao, titulo, tipo, foto, id }: Props) => {
   return (
     <Card>
       <Image src={foto} alt={titulo} />
-      <RatingNote>{avaliacao}</RatingNote>
-      <Rating src={Star} alt="Avaliação" />
       <TagPosition>
         <Tag key={tipo}>{tipo}</Tag>
       </TagPosition>
-      <Title>{titulo}</Title>
+      <Title>
+        {titulo}
+        <div>
+          <Rating src={Star} alt="Avaliação" />
+          <h3>{avaliacao}</h3>
+        </div>
+      </Title>
       <Description>{getDescricao(descricao)}</Description>
       <Link to={`/categories/${id}`}>
         <Click type="button">Saiba mais</Click>

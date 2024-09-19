@@ -1,19 +1,24 @@
 import styled from 'styled-components'
-import { colors } from '../../../styles'
-import { Props } from '../../../components/Tags'
+import { breakpoints, colors } from '../../../styles'
 
 export const Card = styled.div`
+  position: relative;
   background-color: ${colors.white};
   width: 450px;
   height: 450px;
-  position: relative;
   border: solid ${colors.pink} 1px;
   margin-bottom: 30px;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    width: 100%;
+    height: 500px;
+  }
 `
 
 export const Image = styled.img`
   width: 100%;
   height: 250px;
+  object-fit: cover;
 `
 
 export const TagPosition = styled.div`
@@ -22,29 +27,39 @@ export const TagPosition = styled.div`
   right: 20px;
 `
 
-export const Rating = styled.img`
-  width: 24px;
-  position: absolute;
-  right: 10px;
-  top: 28vh;
-`
-
-export const RatingNote = styled.div<Props>`
-  color: ${colors.pink};
-  font-size: 18px;
-  font-weight: bold;
-  display: flex;
-  position: absolute;
-  margin-top: 5px;
-  right: 40px;
-`
-
 export const Title = styled.h3`
+  display: flex;
   font-size: 18px;
   font-weight: bold;
-  display: block;
   margin-top: 12px;
   margin-left: 8px;
+  @media (max-width: ${breakpoints.desktop}) {
+    display: block;
+  }
+
+  div {
+    margin-right: 75px;
+    width: 100px;
+    display: flex;
+
+    @media (max-width: ${breakpoints.desktop}) {
+      margin-left: 0;
+
+      img {
+        margin-right: 5px;
+        margin-left: 0;
+      }
+
+      h3 {
+        margin-left: 0;
+      }
+    }
+  }
+`
+
+export const Rating = styled.img`
+  width: 25%;
+  margin: 0 10px 0 100px;
 `
 
 export const Description = styled.p`

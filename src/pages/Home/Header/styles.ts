@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../../styles'
+import { breakpoints, colors } from '../../../styles'
 
 export const Header = styled.div`
   width: 100%;
@@ -8,18 +8,22 @@ export const Header = styled.div`
   margin-bottom: 20px;
   background-color: ${colors.cream};
   color: ${colors.pink};
-  position: relative;
+  display: block;
 `
 
 export const SubTitle = styled.div`
-  width: 600px;
   margin: auto;
 
   h3 {
     margin-top: 15vh;
     font-size: 36px;
+    @media (max-width: ${breakpoints.cell}) {
+      font-size: 20px;
+      width: 300px;
+    }
   }
 `
+
 export const Title = styled.a`
   magin-top: 0;
   font-weight: bold;

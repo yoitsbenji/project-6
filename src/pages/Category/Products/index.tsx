@@ -14,12 +14,12 @@ import {
   Text,
   Title
 } from './styles'
-import { Comida } from '../../Home'
+import { Cardapio } from '../../Home'
 import { useDispatch } from 'react-redux'
 import { add, open } from '../../../store/reducers/cart'
 
 export type Props = {
-  item: Comida
+  item: Cardapio
   titulo?: string
   capa?: string
   tipo: string

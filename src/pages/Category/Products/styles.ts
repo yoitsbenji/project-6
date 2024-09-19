@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../../styles'
+import { breakpoints, colors } from '../../../styles'
 
 export const Card = styled.div`
   background-color: ${colors.pink};
@@ -9,6 +9,10 @@ export const Card = styled.div`
   position: relative;
   border: solid ${colors.pink} 1px;
   margin-top: 20px;
+  @media (max-width: ${breakpoints.desktop}) {
+    width: 100%;
+    height: 450px;
+  }
 `
 
 export const Image = styled.img`
@@ -51,6 +55,10 @@ export const Click = styled.button`
   bottom: 5px;
   position: absolute;
 
+  @media (max-width: ${breakpoints.desktop}) {
+    width: 95%;
+  }
+
   &:hover {
     background-color: ${colors.white};
   }
@@ -78,7 +86,8 @@ export const Modal = styled.div`
     height: 100%;
     background-color: rgba(0, 0, 0, 0.73);
   }
-}`
+}
+  `
 
 export const ModalContent = styled.div`
   max-width: 960px;
@@ -90,6 +99,11 @@ export const ModalContent = styled.div`
   background-color: ${colors.pink};
   color: ${colors.white};
   z-index: 1;
+
+  @media (max-width: ${breakpoints.cell}) {
+    width: 90%;
+    display: block;
+  }
 `
 
 export const Box = styled.div`
@@ -116,6 +130,9 @@ export const Exit = styled.div`
 export const Text = styled.div`
   display: block;
   margin-left: 30px;
+  @media (max-width: ${breakpoints.cell}) {
+    margin-top: 20px;
+  }
 
   h4 {
     margin-bottom: 20px;
@@ -124,6 +141,9 @@ export const Text = styled.div`
 
   p {
     margin-bottom: 20px;
+    @media (max-width: ${breakpoints.desktop}) {
+      margin-bottom: 40px;
+    }
   }
 
   ${Click} {
@@ -132,5 +152,9 @@ export const Text = styled.div`
     bottom: 7vh;
     padding: 2px;
     width: 280px;
+    @media (max-width: ${breakpoints.desktop}) {
+      width: 70%;
+      bottom: 10vh;
+    }
   }
 `

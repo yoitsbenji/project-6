@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../../styles'
+import { breakpoints, colors } from '../../../styles'
 
 export const Header = styled.div`
   width: 100%;
@@ -14,9 +14,20 @@ export const HList = styled.ul`
   list-style: none;
   display: flex;
   width: 75%;
+  @media (max-width: ${breakpoints.desktop}) {
+    align-items: center;
+    width: 100%;
+  }
 
   a {
     cursor: pointer;
+    @media (max-width: ${breakpoints.desktop}) {
+      margin: 10px;
+    }
+    @media (max-width: ${breakpoints.cell}) {
+      width: 10%;
+      margin: 10px;
+    }
   }
 `
 

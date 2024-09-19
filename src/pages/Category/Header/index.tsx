@@ -7,7 +7,7 @@ import { RootReducer } from '../../../store'
 
 const Top = () => {
   const dispath = useDispatch()
-  const { items } = useSelector((state: RootReducer) => state.cart)
+  const { cartItems } = useSelector((state: RootReducer) => state.cart)
 
   const openCart = () => {
     dispath(open())
@@ -22,7 +22,7 @@ const Top = () => {
         <li>
           <Title href="#">e-Shop</Title>
         </li>
-        <a onClick={openCart}>{items.length} produto(s) no carrinho</a>
+        <a onClick={openCart}>{cartItems.length} produto(s) no carrinho</a>
       </HList>
     </Header>
   )
