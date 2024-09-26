@@ -153,7 +153,12 @@ export const Text = styled.div`
     padding: 2px;
     width: 280px;
     @media (max-width: ${breakpoints.desktop}) {
-      width: 70%;
+      width: 40%;
+      bottom: 10vh;
+    }
+
+    @media (max-width: ${breakpoints.cell}) {
+      width: 80%;
       bottom: 10vh;
     }
   }

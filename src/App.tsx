@@ -7,11 +7,13 @@ import Category from './pages/Category'
 import Bottom from './components/Footer'
 import { store } from './store'
 import Cart from './components/Cart'
+import Checkout from './pages/Category/Checkout'
 
 const Rotas = () => (
   <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/categories/:id" element={<Category />} />
+    <Route path="/checkout" element={<Checkout />} />
   </Routes>
 )
 

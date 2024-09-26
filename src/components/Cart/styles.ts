@@ -45,7 +45,7 @@ export const Sidebar = styled.aside`
     background-color: ${colors.cream};
     color: ${colors.pink};
     top: 0;
-    margin: 0;
+    margin: 10px 0;
     position: relative;
     width: 100%;
   }

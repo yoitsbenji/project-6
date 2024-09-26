@@ -11,10 +11,13 @@ import {
 } from './styles'
 import { RootReducer } from '../../store'
 import { close, remove } from '../../store/reducers/cart'
-import { Cardapio } from '../../pages/Home'
+import Checkout from '../../pages/Category/Checkout'
+import { useState } from 'react'
 
 const Cart = () => {
   const { isOpen, cartItems } = useSelector((state: RootReducer) => state.cart)
+
+  const [finishPurchase, setFinishPurchase] = useState(true)
 
   const dispatch = useDispatch()
 
@@ -46,27 +49,43 @@ const Cart = () => {
     <CartContainer className={isOpen ? 'is-open' : ''}>
       <Overlay onClick={closeCart} />
       <Sidebar>
-        <ul>
-          {cartItems.map((item) => (
-            <Product key={item.id}>
-              <ProductImage key={item.id}>
-                <img src={item.foto} />
-              </ProductImage>
-              <div>
-                <h3>{item.nome}</h3>
-                <span>R$ {item.preco}</span>
-              </div>
-              <button type="button" onClick={() => removeItem(item.id)} />
-            </Product>
-          ))}
-        </ul>
+        {finishPurchase ? (
+          <>
+            <ul>
+              {cartItems.map((item) => (
+                <Product key={item.id}>
+                  <ProductImage key={item.id}>
+                    <img src={item.foto} />
+                  </ProductImage>
+                  <div>
+                    <h3>{item.nome}</h3>
+                    <span>R$ {item.preco}</span>
+                  </div>
+                  <button type="button" onClick={() => removeItem(item.id)} />
+                </Product>
+              ))}
+            </ul>
 
-        <Prices>
-          Valor total <span>{priceFormat(getTotalPrice())}</span>
-        </Prices>
-        <Click title="Clique aqui para continuar" type="button">
-          Continuar para a entrega
-        </Click>
+            <Prices>
+              Valor total <span>{priceFormat(getTotalPrice())}</span>
+            </Prices>
+            <Click
+              onClick={() => setFinishPurchase(false)}
+              title="Clique aqui para continuar"
+              type="button"
+            >
+              Continuar para a entrega
+            </Click>
+          </>
+        ) : (
+          <>
+            <Checkout />
+            <Click>Continuar com o pagamento</Click>
+            <Click onClick={() => setFinishPurchase(true)}>
+              Voltar para o carrinho
+            </Click>
+          </>
+        )}
       </Sidebar>
     </CartContainer>
   )
