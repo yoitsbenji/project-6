@@ -47,7 +47,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-transform-modules-systemjs": "^7.22.5",
+    "@babel/plugin-transform-modules-systemjs": "^7.17.8",
     "@types/react-router-hash-link": "^2.4.9",
     "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.53.0",
