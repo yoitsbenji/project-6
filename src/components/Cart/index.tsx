@@ -13,11 +13,14 @@ import { RootReducer } from '../../store'
 import { close, remove } from '../../store/reducers/cart'
 import Checkout from '../../pages/Category/Checkout'
 import { useState } from 'react'
+import { Pay } from '../../pages/Category/Payment'
 
 const Cart = () => {
   const { isOpen, cartItems } = useSelector((state: RootReducer) => state.cart)
 
-  const [finishPurchase, setFinishPurchase] = useState(true)
+  const [cart, setCart] = useState(true)
+  const [deliveryAdress, setDeliveryAddress] = useState(false)
+  const [payment, setPayment] = useState(false)
 
   const dispatch = useDispatch()
 
@@ -49,7 +52,7 @@ const Cart = () => {
     <CartContainer className={isOpen ? 'is-open' : ''}>
       <Overlay onClick={closeCart} />
       <Sidebar>
-        {finishPurchase ? (
+        {cart ? (
           <>
             <ul>
               {cartItems.map((item) => (
@@ -70,7 +73,10 @@ const Cart = () => {
               Valor total <span>{priceFormat(getTotalPrice())}</span>
             </Prices>
             <Click
-              onClick={() => setFinishPurchase(false)}
+              onClick={() => {
+                setDeliveryAddress(true)
+                setCart(false)
+              }}
               title="Clique aqui para continuar"
               type="button"
             >
@@ -78,13 +84,47 @@ const Cart = () => {
             </Click>
           </>
         ) : (
+          ''
+        )}
+        {deliveryAdress ? (
           <>
             <Checkout />
-            <Click>Continuar com o pagamento</Click>
-            <Click onClick={() => setFinishPurchase(true)}>
+            <Click
+              onClick={() => {
+                setCart(true)
+                setPayment(false)
+                setDeliveryAddress(false)
+              }}
+            >
               Voltar para o carrinho
             </Click>
+            <Click
+              onClick={() => {
+                setPayment(true)
+                setDeliveryAddress(false)
+              }}
+            >
+              Continuar com o pagamento
+            </Click>
           </>
+        ) : (
+          ''
+        )}
+        {payment ? (
+          <>
+            <Pay />
+            <Click
+              onClick={() => {
+                setDeliveryAddress(true)
+                setPayment(false)
+              }}
+            >
+              Voltar edição de endereço
+            </Click>
+            <Click>Finalizar pagamento</Click>
+          </>
+        ) : (
+          ''
         )}
       </Sidebar>
     </CartContainer>
