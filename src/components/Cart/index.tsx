@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { Click } from '../../pages/Home/Products/styles'
 
 import {
   Overlay,
@@ -13,7 +12,7 @@ import { RootReducer } from '../../store'
 import { close, remove } from '../../store/reducers/cart'
 import Checkout from '../../pages/Category/Checkout'
 import { useState } from 'react'
-import { Pay } from '../../pages/Category/Payment'
+import { Click } from '../../pages/Category/Products/styles'
 
 const Cart = () => {
   const { isOpen, cartItems } = useSelector((state: RootReducer) => state.cart)
@@ -98,21 +97,13 @@ const Cart = () => {
             >
               Voltar para o carrinho
             </Click>
-            <Click
-              onClick={() => {
-                setPayment(true)
-                setDeliveryAddress(false)
-              }}
-            >
-              Continuar com o pagamento
-            </Click>
           </>
         ) : (
           ''
         )}
         {payment ? (
           <>
-            <Pay />
+            {/* <PaymentCard /> */}
             <Click
               onClick={() => {
                 setDeliveryAddress(true)
@@ -121,7 +112,6 @@ const Cart = () => {
             >
               Voltar edição de endereço
             </Click>
-            <Click>Finalizar pagamento</Click>
           </>
         ) : (
           ''

@@ -2,17 +2,10 @@ import { Link } from 'react-router-dom'
 
 import Tag from '../../../components/Tags'
 import Star from '../../../assets/images/star.png'
-import {
-  Card,
-  Click,
-  Description,
-  Image,
-  Rating,
-  TagPosition,
-  Title
-} from './styles'
+import { Card, Description, Image, Rating, TagPosition, Title } from './styles'
 
 import { Comida } from '..'
+import { Click } from '../../Category/Products/styles'
 
 export type Props = {
   item: Comida[]

@@ -6,20 +6,6 @@ type Product = {
   price: number
 }
 
-type PaymentPayload = {
-  payment: {
-    card: {
-      name: string
-      number: number
-      code: number
-      expires: {
-        month: number
-        year: number
-      }
-    }
-  }
-}
-
 type DeliverPayload = {
   products: Product[]
   delivery: {
@@ -30,6 +16,17 @@ type DeliverPayload = {
       zipcode: string
       number: number
       complement: string
+    }
+  }
+  payment: {
+    card: {
+      name: string
+      number: number
+      code: number
+      expires: {
+        month: number
+        year: number
+      }
     }
   }
 }
@@ -52,13 +49,6 @@ const api = createApi({
         method: 'POST',
         body
       })
-    }),
-    payment: builder.mutation<any, PaymentPayload>({
-      query: (body) => ({
-        url: 'checkout',
-        method: 'POST',
-        body
-      })
     })
   })
 })
@@ -66,7 +56,6 @@ const api = createApi({
 export const {
   useGetHomeRestaurantsQuery,
   useGetCategoriesQuery,
-  usePaymentMutation,
   useDeliverMutation
 } = api
 
