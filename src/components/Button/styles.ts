@@ -1,7 +1,8 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
-import { Props } from '.'
 import { Link } from 'react-router-dom'
+
+import { Props } from '.'
+import { colors } from '../../styles'
 
 export const StandardClick = styled.button<Props>`
   background-color: ${colors.cream};

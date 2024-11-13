@@ -1,6 +1,10 @@
 import { useState } from 'react'
-import exit from '../../../assets/images/x.png'
+import { useDispatch } from 'react-redux'
+
+import { add, open } from '../../../store/reducers/cart'
 import Tag from '../../../components/Tags'
+import { Menu } from '../../Home'
+import exit from '../../../assets/images/x.png'
 import {
   Box,
   Card,
@@ -14,28 +18,25 @@ import {
   Text,
   Title
 } from './styles'
-import { Cardapio } from '../../Home'
-import { useDispatch } from 'react-redux'
-import { add, open } from '../../../store/reducers/cart'
 
 export type Props = {
-  item: Cardapio
-  titulo?: string
-  capa?: string
-  tipo: string
-  foto: string
-  descricao: string
-  preco?: number
-  porcao?: string
+  item: Menu
+  title?: string
+  cover?: string
+  type: string
+  image: string
+  description: string
+  price?: number
+  portion?: string
 }
 
 const Product = ({
-  descricao,
-  titulo,
-  tipo,
-  foto,
-  preco,
-  porcao,
+  description,
+  title,
+  type,
+  image,
+  price,
+  portion,
   item
 }: Props) => {
   const dispatch = useDispatch()
@@ -46,22 +47,22 @@ const Product = ({
   }
 
   const [modalIsOpen, setModalIsOpen] = useState(false)
-  const getDescricao = (descricao: string) => {
-    if (descricao.length > 160) {
-      return descricao.slice(0, 160) + '...'
+  const getDescription = (description: string) => {
+    if (description.length > 160) {
+      return description.slice(0, 160) + '...'
     }
-    return descricao
+    return description
   }
 
   return (
     <>
       <Card>
-        <Image src={foto} alt={titulo} />
+        <Image src={image} alt={title} />
         <TagPosition>
-          <Tag key={tipo}>{tipo}</Tag>
+          <Tag key={type}>{type}</Tag>
         </TagPosition>
-        <Title>{titulo}</Title>
-        <Description>{getDescricao(descricao)}</Description>
+        <Title>{title}</Title>
+        <Description>{getDescription(description)}</Description>
         <Click type="button" onClick={() => setModalIsOpen(true)}>
           Ver mais
         </Click>
@@ -69,14 +70,14 @@ const Product = ({
       <Modal className={modalIsOpen ? 'visible' : ''}>
         <ModalContent>
           <Box>
-            <img src={foto} alt={titulo} />
+            <img src={image} alt={title} />
           </Box>
           <Text>
-            <h4>{titulo}</h4>
-            <p>{descricao}</p>
-            <p>Serve de {porcao}</p>
+            <h4>{title}</h4>
+            <p>{description}</p>
+            <p>Serve de {portion}</p>
             <Click onClick={addToCart}>
-              Adicionar ao carrinho - R$ {preco + '0'}
+              Adicionar ao carrinho - R$ {price + '0'}
             </Click>
           </Text>
           <Exit>

@@ -1,4 +1,5 @@
 import { Title, Footer, Social, Copyright } from './styles'
+
 import instagram from '../../assets/images/social/ig.png'
 import tiktok from '../../assets/images/social/tiktok.png'
 import facebook from '../../assets/images/social/facebook.png'

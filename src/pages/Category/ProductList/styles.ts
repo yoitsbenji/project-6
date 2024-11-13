@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import { breakpoints, colors } from '../../../styles'
 import { Props } from '../../Home/ProductList'
+import { breakpoints, colors } from '../../../styles'
 
 export const Section = styled.section<Omit<Props, 'title' | 'item'>>`
   margin-top: 0;

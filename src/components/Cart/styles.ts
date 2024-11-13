@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { breakpoints, colors } from '../../styles'
-import trash from '../../assets/images/trash.png'
 import { Click } from '../../pages/Category/Products/styles'
+import trash from '../../assets/images/trash.png'
 
 export const Overlay = styled.div`
   position: absolute;

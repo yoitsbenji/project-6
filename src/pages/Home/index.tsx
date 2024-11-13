@@ -1,30 +1,30 @@
+import { useGetHomeRestaurantsQuery } from '../../services/api'
+
 import ProductList from './ProductList'
 import Top from './Header'
 
-import { useGetHomeRestaurantsQuery } from '../../services/api'
-
-export interface Cardapio {
+export interface Menu {
   id: number
-  foto: string
-  preco: number
-  nome: string
-  descricao: string
-  porcao: string
+  image: string
+  price: number
+  name: string
+  description: string
+  portion: string
 }
 
-export type Comida = {
+export type Food = {
   id: number
-  foto: string
-  preco: number
-  porcao: string
-  nome: string
-  capa: string
-  titulo: string
-  destacado: boolean
-  tipo: string
-  avaliacao: string
-  descricao: string
-  cardapio: Cardapio[]
+  image: string
+  price: number
+  portion: string
+  name: string
+  cover: string
+  title: string
+  highlight: boolean
+  type: string
+  score: string
+  description: string
+  menu: Menu[]
 }
 
 const Home = () => {

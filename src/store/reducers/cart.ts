@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Cardapio } from '../../pages/Home'
+import { Menu } from '../../pages/Home'
 
 type CartState = {
-  cartItems: Cardapio[]
+  cartItems: Menu[]
   isOpen: boolean
 }
 
@@ -15,8 +15,14 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    add: (state, action: PayloadAction<Cardapio>) => {
-      state.cartItems.push(action.payload)
+    add: (state, action: PayloadAction<Menu>) => {
+      const Menu = state.cartItems.find((item) => item.id === action.payload.id)
+
+      if (!Menu) {
+        state.cartItems.push(action.payload)
+      } else {
+        alert('O jogo já está no carrinho')
+      }
     },
     open: (state) => {
       state.isOpen = true

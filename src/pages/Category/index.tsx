@@ -1,12 +1,13 @@
-import Top from './Header'
-import ProductList from './ProductList'
-
 import { useParams } from 'react-router-dom'
 
 import { useGetCategoriesQuery } from '../../services/api'
 
+import Top from './Header'
+import ProductList from './ProductList'
+
 const Category = () => {
   const { id } = useParams()
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const { data: restaurant } = useGetCategoriesQuery(id!)
 
   if (!restaurant) {
@@ -17,11 +18,11 @@ const Category = () => {
     <>
       <Top />
       <ProductList
-        cardapio={restaurant.cardapio}
-        capa={restaurant.capa}
-        tipo={restaurant.tipo}
+        menu={restaurant.menu}
+        cover={restaurant.cover}
+        type={restaurant.type}
         item={[]}
-        titulo={restaurant.titulo}
+        title={restaurant.title}
       />
     </>
   )

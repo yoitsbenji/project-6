@@ -1,15 +1,21 @@
 import { useFormik } from 'formik'
-import { FList, Line1 } from './styles'
-import * as Yup from 'yup'
-import { useDeliverMutation } from '../../../services/api'
-import { Card } from '../Products/styles'
 import { useEffect, useState } from 'react'
+import { Navigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import * as Yup from 'yup'
+
+import { RootReducer } from '../../../store'
+import { usePurchaseMutation } from '../../../services/api'
+import { clear } from '../../../store/reducers/cart'
+
+import { FList, Line1 } from './styles'
 import { StandardClick } from '../../../components/Button/styles'
-import { useDispatch } from 'react-redux'
+import { Card } from '../Products/styles'
 
 const Checkout = () => {
   const [pay, setPay] = useState(false)
-  const [purchase, { isSuccess, data }] = useDeliverMutation()
+  const { cartItems } = useSelector((state: RootReducer) => state.cart)
+  const [purchase, { isSuccess, data, isLoading }] = usePurchaseMutation()
   const dispatch = useDispatch()
 
   const form = useFormik({
@@ -68,8 +74,8 @@ const Checkout = () => {
         },
         payment: {
           card: {
-            name: values.fullName,
-            number: Number(values.cardNumber),
+            name: values.cardFullName,
+            number: values.cardNumber,
             code: Number(values.cvv),
             expires: {
               month: Number(values.expireMonth),
@@ -77,12 +83,26 @@ const Checkout = () => {
             }
           }
         },
-        products: []
-      }).then(() => {
-        setPay(false)
+        products: cartItems.map((item) => ({
+          id: item.id,
+          price: item.price as number
+        }))
       })
+      if (isSuccess) {
+        console.log('Compra realizada com sucesso:', data)
+      }
     }
   })
+
+  useEffect(() => {
+    if (isSuccess) {
+      dispatch(clear())
+    }
+  }, [isSuccess, dispatch])
+
+  if (cartItems.length === 0 && !isSuccess) {
+    return <Navigate to="/" />
+  }
 
   const getErrorMessage = (fieldName: string, message?: string) => {
     const hasChanged = fieldName in form.touched
@@ -92,12 +112,6 @@ const Checkout = () => {
     return ''
   }
 
-  useEffect(() => {
-    if (isSuccess) {
-      setPay(false)
-    }
-  }, [isSuccess])
-
   return (
     <>
       {isSuccess && data ? (
@@ -105,6 +119,8 @@ const Checkout = () => {
           <p>
             Estamos felizes em informar que seu pedido já está em processo de
             preparação e, em breve, será entregue no endereço fornecido.
+            <br />
+            Número do pedido: {data.orderId}
           </p>
           <br />
           <p>
@@ -131,88 +147,91 @@ const Checkout = () => {
       ) : (
         <>
           {pay ? (
-            <FList>
-              <h2>Pagamento</h2>
-              <li>
-                <label htmlFor="text">Nome do cartão</label>
-                <input
-                  value={form.values.fullName}
-                  onChange={form.handleChange}
-                  onBlur={form.handleBlur}
-                  name="fullName"
-                  id="fullName"
-                  type="text"
-                />
-                <small>
-                  {getErrorMessage('fullName', form.errors.fullName)}
-                </small>
-              </li>
-              <Line1>
+            <form onSubmit={form.handleSubmit}>
+              <FList>
+                <h2>Pagamento</h2>
                 <li>
-                  <label htmlFor="cardNumber">Número do cartão</label>
+                  <label htmlFor="text">Nome do cartão</label>
                   <input
-                    value={form.values.cardNumber}
+                    value={form.values.cardFullName}
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
-                    name="cardNumber"
-                    id="cardNumber"
-                    type="number"
+                    name="cardFullName"
+                    id="cardFullName"
+                    type="text"
                   />
                   <small>
-                    {getErrorMessage('cardNumber', form.errors.cardNumber)}
+                    {getErrorMessage('cardFullName', form.errors.cardFullName)}
                   </small>
                 </li>
-                <li>
-                  <label htmlFor="cvv">CVV</label>
-                  <input
-                    value={form.values.cvv}
-                    onChange={form.handleChange}
-                    onBlur={form.handleBlur}
-                    name="cvv"
-                    id="cvv"
-                    type="number"
-                  />
-                  <small>{getErrorMessage('cvv', form.errors.cvv)}</small>
-                </li>
-              </Line1>
-              <Line1>
-                <li>
-                  <label htmlFor="expireMonth">Mês do vencimento</label>
-                  <input
-                    value={form.values.expireMonth}
-                    onChange={form.handleChange}
-                    onBlur={form.handleBlur}
-                    name="expireMonth"
-                    id="expireMonth"
-                    type="number"
-                  />
-                  <small>
-                    {getErrorMessage('expireMonth', form.errors.expireMonth)}
-                  </small>
-                </li>
-                <li>
-                  <label htmlFor="expireYear">Ano do vencimento</label>
-                  <input
-                    value={form.values.expireYear}
-                    onChange={form.handleChange}
-                    onBlur={form.handleBlur}
-                    name="expireYear"
-                    id="expireYear"
-                    type="number"
-                  />
-                  <small>
-                    {getErrorMessage('expireYear', form.errors.expireYear)}
-                  </small>
-                </li>
-              </Line1>
-              <StandardClick
-                type="submit"
-                title="Clique para finalizar seu pedido"
-                onClick={form.handleSubmit}
-              >
-                Finalizar pagamento
-              </StandardClick>
-            </FList>
+                <Line1>
+                  <li>
+                    <label htmlFor="cardNumber">Número do cartão</label>
+                    <input
+                      value={form.values.cardNumber}
+                      onChange={form.handleChange}
+                      onBlur={form.handleBlur}
+                      name="cardNumber"
+                      id="cardNumber"
+                      type="number"
+                    />
+                    <small>
+                      {getErrorMessage('cardNumber', form.errors.cardNumber)}
+                    </small>
+                  </li>
+                  <li>
+                    <label htmlFor="cvv">CVV</label>
+                    <input
+                      value={form.values.cvv}
+                      onChange={form.handleChange}
+                      onBlur={form.handleBlur}
+                      name="cvv"
+                      id="cvv"
+                      type="number"
+                    />
+                    <small>{getErrorMessage('cvv', form.errors.cvv)}</small>
+                  </li>
+                </Line1>
+                <Line1>
+                  <li>
+                    <label htmlFor="expireMonth">Mês do vencimento</label>
+                    <input
+                      value={form.values.expireMonth}
+                      onChange={form.handleChange}
+                      onBlur={form.handleBlur}
+                      name="expireMonth"
+                      id="expireMonth"
+                      type="number"
+                    />
+                    <small>
+                      {getErrorMessage('expireMonth', form.errors.expireMonth)}
+                    </small>
+                  </li>
+                  <li>
+                    <label htmlFor="expireYear">Ano do vencimento</label>
+                    <input
+                      value={form.values.expireYear}
+                      onChange={form.handleChange}
+                      onBlur={form.handleBlur}
+                      name="expireYear"
+                      id="expireYear"
+                      type="number"
+                    />
+                    <small>
+                      {getErrorMessage('expireYear', form.errors.expireYear)}
+                    </small>
+                  </li>
+                </Line1>
+                <StandardClick
+                  type="submit"
+                  onClick={form.handleSubmit}
+                  title="Clique para finalizar seu pedido"
+                  disabled={isLoading}
+                >
+                  {isLoading ? 'Finalizando...' : 'Finalizar pagamento'}
+                </StandardClick>
+              </FList>
+            </form>
           ) : (
             <form onSubmit={form.handleSubmit}>
               <FList>

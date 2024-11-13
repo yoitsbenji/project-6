@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import { Title, Header, HList } from './styles'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { open } from '../../../store/reducers/cart'
-import { useDispatch, useSelector } from 'react-redux'
+import { Title, Header, HList } from './styles'
 import { RootReducer } from '../../../store'
 
 const Top = () => {

@@ -1,10 +1,11 @@
-import { Comida } from '..'
-import { Container } from '../../../styles'
+import { Food } from '..'
 import Product from '../Products'
+
+import { Container } from '../../../styles'
 import { List, Section } from './styles'
 
 export type Props = {
-  item: Comida[]
+  item: Food[]
 }
 
 const ProductList = ({ item }: Props) => {
@@ -17,11 +18,11 @@ const ProductList = ({ item }: Props) => {
               <Product
                 id={item.id}
                 key={item.id}
-                descricao={item.descricao}
-                titulo={item.titulo}
-                foto={item.capa}
-                avaliacao={item.avaliacao}
-                tipo={item.tipo}
+                description={item.description}
+                title={item.title}
+                image={item.cover}
+                score={item.score}
+                type={item.type}
                 item={[]}
               />
             </li>
