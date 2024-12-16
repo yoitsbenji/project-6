@@ -7,7 +7,7 @@ import Category from './pages/Category'
 import Bottom from './components/Footer'
 import { store } from './store'
 import Cart from './components/Cart'
-import Checkout from './pages/Category/Checkout'
+import Checkout from './pages/Checkout'
 
 const Rotas = () => (
   <Routes>

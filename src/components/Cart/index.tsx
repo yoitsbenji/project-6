@@ -11,7 +11,7 @@ import {
 } from './styles'
 import { RootReducer } from '../../store'
 import { close, remove } from '../../store/reducers/cart'
-import Checkout from '../../pages/Category/Checkout'
+import Checkout from '../../pages/Checkout'
 import { useState } from 'react'
 
 const Cart = () => {
@@ -80,7 +80,6 @@ const Cart = () => {
         ) : (
           <>
             <Checkout />
-            <Click>Continuar com o pagamento</Click>
             <Click onClick={() => setFinishPurchase(true)}>
               Voltar para o carrinho
             </Click>

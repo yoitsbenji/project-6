@@ -1,10 +1,9 @@
-import { Comida } from '..'
 import { Container } from '../../../styles'
 import Product from '../Products'
 import { List, Section } from './styles'
 
 export type Props = {
-  item: Comida[]
+  item: Food[]
 }
 
 const ProductList = ({ item }: Props) => {

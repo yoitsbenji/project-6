@@ -1,10 +1,9 @@
 import { Container } from '../../../styles'
-import { Cardapio, Comida } from '../../Home'
 import Product from '../Products'
 import { Banner, List, Section, Title } from './styles'
 
 export type Props = {
-  item: Comida[]
+  item: Food[]
   cardapio: Cardapio[]
   titulo: string
   capa: string
@@ -12,7 +11,7 @@ export type Props = {
 }
 
 const ProductList = ({ cardapio, capa, tipo, titulo }: Props) => {
-  console.log('Cardapio:', cardapio)
+  console.log('cardapio:', cardapio)
   console.log('Capa:', capa)
   console.log('Tipo:', tipo)
   console.log('Titulo:', titulo)

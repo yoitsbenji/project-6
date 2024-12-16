@@ -7,6 +7,7 @@ import { useGetCategoriesQuery } from '../../services/api'
 
 const Category = () => {
   const { id } = useParams()
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const { data: restaurant } = useGetCategoriesQuery(id!)
 
   if (!restaurant) {

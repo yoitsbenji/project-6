@@ -12,10 +12,8 @@ import {
   Title
 } from './styles'
 
-import { Comida } from '..'
-
 export type Props = {
-  item: Comida[]
+  item: Food[]
   titulo: string
   tipo: string
   avaliacao: string

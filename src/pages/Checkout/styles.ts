@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../../styles'
+import { colors } from '../../styles'
 
 export const FList = styled.ul`
   color: ${colors.cream};
@@ -11,10 +11,11 @@ export const FList = styled.ul`
 
   li {
     display: block;
+    justify-content: space-between;
 
     label {
       display: block;
-      margin: 5px 0;
+      margin: 10px 0;
     }
 
     input {
@@ -29,8 +30,13 @@ export const FList = styled.ul`
 
 export const Line1 = styled.div`
   display: flex;
+    flex: auto;
+
 
   li {
     width: 175px;
+
+    input,
+    label {
   }
 `

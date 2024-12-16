@@ -14,7 +14,6 @@ import {
   Text,
   Title
 } from './styles'
-import { Cardapio } from '../../Home'
 import { useDispatch } from 'react-redux'
 import { add, open } from '../../../store/reducers/cart'
 
