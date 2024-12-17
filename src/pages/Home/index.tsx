@@ -1,7 +1,6 @@
+import { useGetHomeRestaurantsQuery } from '../../services/api'
 import ProductList from './ProductList'
 import Top from './Header'
-
-import { useGetHomeRestaurantsQuery } from '../../services/api'
 
 const Home = () => {
   const { data: restaurant } = useGetHomeRestaurantsQuery()

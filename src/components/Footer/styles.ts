@@ -1,26 +1,32 @@
 import styled from 'styled-components'
+import { HashLink } from 'react-router-hash-link'
 import { colors } from '../../styles'
 
 export const Footer = styled.div`
+  background-color: ${colors.cream};
+  color: ${colors.pink};
   width: 100%;
   text-align: center;
   padding: 80px;
   margin-top: 50px;
-  background-color: ${colors.cream};
-  color: ${colors.pink};
   position: relative;
 `
-export const Title = styled.a`
+
+export const Link = styled(HashLink)`
+  text-decoration: none;
+`
+
+export const Title = styled.p`
+  color: ${colors.pink};
+  border: 4px solid ${colors.pink};
   magin-top: 0;
   margin: auto;
   font-weight: bold;
   text-decoration: none;
-  color: ${colors.pink};
   font-size: 30px;
   padding: 10px;
   width: 120px;
   height: 70px;
-  border: 4px solid ${colors.pink};
 `
 
 export const Social = styled.div`

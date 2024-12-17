@@ -31,21 +31,14 @@ export const HList = styled.ul`
   }
 `
 
-export const Hlink = styled.a`
-  color: ${colors.pink};
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 20px;
-`
-
 export const Title = styled.a`
+  color: ${colors.pink};
+  background-color: ${colors.white};
+  border: 4px solid ${colors.pink};
   padding: 10px;
   font-size: 30px;
   font-weight: bold;
   text-decoration: none;
-  color: ${colors.pink};
-  background-color: ${colors.white};
-  border: 4px solid ${colors.pink};
   font-size: 30px;
   align-itens: center;
   width: 120px;

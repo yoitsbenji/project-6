@@ -1,21 +1,10 @@
 import { useState } from 'react'
-import exit from '../../../assets/images/x.png'
-import Tag from '../../../components/Tags'
-import {
-  Box,
-  Card,
-  Click,
-  Description,
-  Exit,
-  Image,
-  Modal,
-  ModalContent,
-  TagPosition,
-  Text,
-  Title
-} from './styles'
 import { useDispatch } from 'react-redux'
+
 import { add, open } from '../../../store/reducers/cart'
+import Tag from '../../../components/Tags'
+import exit from '../../../assets/images/x.png'
+import * as S from './styles'
 
 export type Props = {
   item: Cardapio
@@ -54,40 +43,47 @@ const Product = ({
 
   return (
     <>
-      <Card>
-        <Image src={foto} alt={titulo} />
-        <TagPosition>
+      <S.Card>
+        <S.Image src={foto} alt={titulo} />
+        <S.TagPosition>
           <Tag key={tipo}>{tipo}</Tag>
-        </TagPosition>
-        <Title>{titulo}</Title>
-        <Description>{getDescricao(descricao)}</Description>
-        <Click type="button" onClick={() => setModalIsOpen(true)}>
+        </S.TagPosition>
+        <S.Title>{titulo}</S.Title>
+        <S.Description>{getDescricao(descricao)}</S.Description>
+        <S.Click
+          title={`Clique aqui para ver mais sobre o prato ${titulo}`}
+          type="button"
+          onClick={() => setModalIsOpen(true)}
+        >
           Ver mais
-        </Click>
-      </Card>
-      <Modal className={modalIsOpen ? 'visible' : ''}>
-        <ModalContent>
-          <Box>
+        </S.Click>
+      </S.Card>
+      <S.Modal className={modalIsOpen ? 'visible' : ''}>
+        <S.ModalContent>
+          <S.Box>
             <img src={foto} alt={titulo} />
-          </Box>
-          <Text>
+          </S.Box>
+          <S.Text>
             <h4>{titulo}</h4>
             <p>{descricao}</p>
             <p>Serve de {porcao}</p>
-            <Click onClick={addToCart}>
+            <S.Click
+              title={`Clique para adicionar ao carrinho`}
+              onClick={addToCart}
+            >
               Adicionar ao carrinho - R$ {preco + '0'}
-            </Click>
-          </Text>
-          <Exit>
+            </S.Click>
+          </S.Text>
+          <S.Exit>
             <img
               src={exit}
               alt="Click to exit"
               onClick={() => setModalIsOpen(false)}
             />
-          </Exit>
-        </ModalContent>
+          </S.Exit>
+        </S.ModalContent>
         <div className="overlay" onClick={() => setModalIsOpen(false)}></div>
-      </Modal>
+      </S.Modal>
     </>
   )
 }

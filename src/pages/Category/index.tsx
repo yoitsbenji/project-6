@@ -1,9 +1,8 @@
-import Top from './Header'
-import ProductList from './ProductList'
-
 import { useParams } from 'react-router-dom'
 
 import { useGetCategoriesQuery } from '../../services/api'
+import Top from './Header'
+import ProductList from './ProductList'
 
 const Category = () => {
   const { id } = useParams()

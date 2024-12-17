@@ -24,6 +24,10 @@ export const FList = styled.ul`
       width: 100%;
       background-color: ${colors.cream};
       -webkit-appearance: none;
+
+      &.error {
+        border: 1px solid red;
+      }
     }
   }
 `

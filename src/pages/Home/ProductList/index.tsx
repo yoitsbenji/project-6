@@ -1,5 +1,5 @@
-import { Container } from '../../../styles'
 import Product from '../Products'
+import { Container } from '../../../styles'
 import { List, Section } from './styles'
 
 export type Props = {

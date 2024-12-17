@@ -1,15 +1,16 @@
 import { useFormik } from 'formik'
 import { useEffect, useState } from 'react'
-import { Navigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { Navigate } from 'react-router-dom'
+import InputMask from 'react-input-mask'
 import * as Yup from 'yup'
 
-import { FList, Line1 } from './styles'
-import { Card } from '../Home/Products/styles'
 import { usePurchaseMutation } from '../../services/api'
 import { RootReducer } from '../../store'
-import { StandardClick } from '../../components/Button/styles'
 import { clear } from '../../store/reducers/cart'
+import { Card } from '../Home/Products/styles'
+import { FList, Line1 } from './styles'
+import { StandardClick } from '../../components/Button/styles'
 
 const Checkout = () => {
   const [pay, setPay] = useState(false)
@@ -103,12 +104,12 @@ const Checkout = () => {
     return <Navigate to="/" />
   }
 
-  const getErrorMessage = (fieldName: string, message?: string) => {
+  const checkInputHasError = (fieldName: string) => {
     const hasChanged = fieldName in form.touched
     const isInvalid = fieldName in form.errors
+    const hasError = hasChanged && isInvalid
 
-    if (hasChanged && isInvalid) return message
-    return ''
+    return hasError
   }
 
   return (
@@ -158,10 +159,10 @@ const Checkout = () => {
                     name="cardFullName"
                     id="cardFullName"
                     type="text"
+                    className={
+                      checkInputHasError('cardFullName') ? 'error' : ''
+                    }
                   />
-                  <small>
-                    {getErrorMessage('cardFullName', form.errors.cardFullName)}
-                  </small>
                 </li>
                 <Line1>
                   <li>
@@ -173,10 +174,10 @@ const Checkout = () => {
                       name="cardNumber"
                       id="cardNumber"
                       type="number"
+                      className={
+                        checkInputHasError('cardNumber') ? 'error' : ''
+                      }
                     />
-                    <small>
-                      {getErrorMessage('cardNumber', form.errors.cardNumber)}
-                    </small>
                   </li>
                   <li>
                     <label htmlFor="cvv">CVV</label>
@@ -187,8 +188,8 @@ const Checkout = () => {
                       name="cvv"
                       id="cvv"
                       type="number"
+                      className={checkInputHasError('cvv') ? 'error' : ''}
                     />
-                    <small>{getErrorMessage('cvv', form.errors.cvv)}</small>
                   </li>
                 </Line1>
                 <Line1>
@@ -201,10 +202,10 @@ const Checkout = () => {
                       name="expireMonth"
                       id="expireMonth"
                       type="number"
+                      className={
+                        checkInputHasError('expireMonth') ? 'error' : ''
+                      }
                     />
-                    <small>
-                      {getErrorMessage('expireMonth', form.errors.expireMonth)}
-                    </small>
                   </li>
                   <li>
                     <label htmlFor="expireYear">Ano do vencimento</label>
@@ -215,10 +216,10 @@ const Checkout = () => {
                       name="expireYear"
                       id="expireYear"
                       type="number"
+                      className={
+                        checkInputHasError('expireYear') ? 'error' : ''
+                      }
                     />
-                    <small>
-                      {getErrorMessage('expireYear', form.errors.expireYear)}
-                    </small>
                   </li>
                 </Line1>
                 <StandardClick
@@ -244,10 +245,8 @@ const Checkout = () => {
                     value={form.values.fullName}
                     id="fullName"
                     type="text"
+                    className={checkInputHasError('fullName') ? 'error' : ''}
                   />
-                  <small>
-                    {getErrorMessage('fullName', form.errors.fullName)}
-                  </small>
                 </li>
                 <li>
                   <label htmlFor="address">Endereço</label>
@@ -258,10 +257,8 @@ const Checkout = () => {
                     value={form.values.address}
                     id="address"
                     type="text"
+                    className={checkInputHasError('address') ? 'error' : ''}
                   />
-                  <small>
-                    {getErrorMessage('address', form.errors.address)}
-                  </small>
                 </li>
                 <li>
                   <label htmlFor="city">Cidade</label>
@@ -272,21 +269,22 @@ const Checkout = () => {
                     value={form.values.city}
                     id="city"
                     type="text"
+                    className={checkInputHasError('city') ? 'error' : ''}
                   />
-                  <small>{getErrorMessage('city', form.errors.city)}</small>
                 </li>
                 <Line1>
                   <li>
                     <label htmlFor="cep">CEP</label>
-                    <input
+                    <InputMask
                       onChange={form.handleChange}
                       onBlur={form.handleBlur}
                       name="cep"
                       value={form.values.cep}
                       id="cep"
                       type="text"
+                      className={checkInputHasError('cep') ? 'error' : ''}
+                      mask="99999-999"
                     />
-                    <small>{getErrorMessage('cep', form.errors.cep)}</small>
                   </li>
                   <li>
                     <label htmlFor="number">Número</label>
@@ -297,10 +295,8 @@ const Checkout = () => {
                       value={form.values.number}
                       id="number"
                       type="text"
+                      className={checkInputHasError('number') ? 'error' : ''}
                     />
-                    <small>
-                      {getErrorMessage('number', form.errors.number)}
-                    </small>
                   </li>
                 </Line1>
                 <li>

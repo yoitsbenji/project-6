@@ -1,9 +1,10 @@
-import { Link } from 'react-router-dom'
-import { Title, Header, HList } from './styles'
-
-import { open } from '../../../store/reducers/cart'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { HashLink } from 'react-router-hash-link'
+
 import { RootReducer } from '../../../store'
+import { open } from '../../../store/reducers/cart'
+import { Title, Header, HList } from './styles'
 
 const Top = () => {
   const dispath = useDispatch()
@@ -17,12 +18,18 @@ const Top = () => {
     <Header>
       <HList>
         <li>
-          <Link to="/">Restaurantes</Link>
+          <Link title={`Ir para a página inicial`} to="/">
+            Restaurantes
+          </Link>
         </li>
         <li>
-          <Title href="#">e-Shop</Title>
+          <HashLink title={`eFood`} to="/">
+            <Title>eFood</Title>
+          </HashLink>
         </li>
-        <a onClick={openCart}>{cartItems.length} produto(s) no carrinho</a>
+        <a title={`Clique para abrir o carrinho`} onClick={openCart}>
+          {cartItems.length} produto(s) no carrinho
+        </a>
       </HList>
     </Header>
   )

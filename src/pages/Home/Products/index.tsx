@@ -2,15 +2,7 @@ import { Link } from 'react-router-dom'
 
 import Tag from '../../../components/Tags'
 import Star from '../../../assets/images/star.png'
-import {
-  Card,
-  Click,
-  Description,
-  Image,
-  Rating,
-  TagPosition,
-  Title
-} from './styles'
+import * as S from './styles'
 
 export type Props = {
   item: Food[]
@@ -33,23 +25,25 @@ const Product = ({ avaliacao, descricao, titulo, tipo, foto, id }: Props) => {
   }
 
   return (
-    <Card>
-      <Image src={foto} alt={titulo} />
-      <TagPosition>
+    <S.Card>
+      <S.Image src={foto} alt={titulo} />
+      <S.TagPosition>
         <Tag key={tipo}>{tipo}</Tag>
-      </TagPosition>
-      <Title>
+      </S.TagPosition>
+      <S.Title>
         {titulo}
         <div>
-          <Rating src={Star} alt="Avaliação" />
+          <S.Rating src={Star} alt="Avaliação" />
           <h3>{avaliacao}</h3>
         </div>
-      </Title>
-      <Description>{getDescricao(descricao)}</Description>
+      </S.Title>
+      <S.Description>{getDescricao(descricao)}</S.Description>
       <Link to={`/categories/${id}`}>
-        <Click type="button">Saiba mais</Click>
+        <S.Click title={`Clique para ver mais detalhes`} type="button">
+          Saiba mais
+        </S.Click>
       </Link>
-    </Card>
+    </S.Card>
   )
 }
 
