@@ -63,7 +63,7 @@ const Cart = () => {
               title="Clique aqui para continuar"
               type="button"
             >
-              Continuar para a entrega
+              Continuar
             </Click>
           </>
         ) : (
