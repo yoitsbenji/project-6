@@ -24,23 +24,20 @@ export const FList = styled.ul`
       width: 100%;
       background-color: ${colors.cream};
       -webkit-appearance: none;
-
-      &.error {
-        border: 1px solid red;
-      }
     }
   }
 `
 
 export const Line1 = styled.div`
   display: flex;
-    flex: auto;
-
+  flex: auto;
 
   li {
     width: 175px;
 
-    input,
-    label {
+    input {
+      -webkit-appearance: none;
+      appearance: none;
+    }
   }
 `

@@ -74,6 +74,7 @@ export const Modal = styled.div`
   display: none;
   z-index: 1;
 
+
   &.visible {
   display: block;
   }
@@ -103,6 +104,7 @@ export const ModalContent = styled.div`
   @media (max-width: ${breakpoints.cell}) {
     width: 90%;
     display: block;
+    margin-top: 10vh;
   }
 `
 
@@ -131,7 +133,7 @@ export const Text = styled.div`
   display: block;
   margin-left: 30px;
   @media (max-width: ${breakpoints.cell}) {
-    margin-top: 20px;
+    margin-top: 5px;
   }
 
   h4 {
@@ -154,12 +156,11 @@ export const Text = styled.div`
     width: 280px;
     @media (max-width: ${breakpoints.desktop}) {
       width: 40%;
-      bottom: 10vh;
+      bottom: 11vh;
     }
 
     @media (max-width: ${breakpoints.cell}) {
       width: 80%;
-      bottom: 10vh;
     }
   }
 `
