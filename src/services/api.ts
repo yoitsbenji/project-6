@@ -22,10 +22,10 @@ type DeliverPayload = {
       name: string
       number: string
       expires: {
-        month: number
-        year: number
+        month: string
+        year: string
       }
-      code: number
+      code: string
     }
   }
 }

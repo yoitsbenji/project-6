@@ -10,6 +10,7 @@ import { clear } from '../../store/reducers/cart'
 import { Card } from '../Home/Products/styles'
 import { FList, Line1 } from './styles'
 import { StandardClick } from '../../components/Button/styles'
+import InputMask from 'react-input-mask'
 
 const Checkout = () => {
   const [pay, setPay] = useState(false)
@@ -75,10 +76,10 @@ const Checkout = () => {
           card: {
             name: values.cardFullName,
             number: values.cardNumber,
-            code: Number(values.cvv),
+            code: values.cvv,
             expires: {
-              month: Number(values.expireMonth),
-              year: Number(values.expireYear)
+              month: values.expireMonth,
+              year: values.expireYear
             }
           }
         },
@@ -165,13 +166,14 @@ const Checkout = () => {
                 <Line1>
                   <li>
                     <label htmlFor="cardNumber">Número do cartão</label>
-                    <input
+                    <InputMask
                       value={form.values.cardNumber}
                       onChange={form.handleChange}
                       onBlur={form.handleBlur}
                       name="cardNumber"
                       id="cardNumber"
-                      type="number"
+                      type="text"
+                      mask="9999 9999 9999 9999"
                     />
                     <small>
                       {getErrorMessage('cardNumber', form.errors.cardNumber)}
@@ -179,14 +181,15 @@ const Checkout = () => {
                   </li>
                   <li>
                     <label htmlFor="cvv">CVV</label>
-                    <input
+                    <InputMask
                       className="inputNumber"
                       value={form.values.cvv}
                       onChange={form.handleChange}
                       onBlur={form.handleBlur}
                       name="cvv"
                       id="cvv"
-                      type="number"
+                      type="text"
+                      mask="999"
                     />
                     <small>{getErrorMessage('cvv', form.errors.cvv)}</small>
                   </li>
@@ -194,13 +197,14 @@ const Checkout = () => {
                 <Line1>
                   <li>
                     <label htmlFor="expireMonth">Mês do vencimento</label>
-                    <input
+                    <InputMask
                       value={form.values.expireMonth}
                       onChange={form.handleChange}
                       onBlur={form.handleBlur}
                       name="expireMonth"
                       id="expireMonth"
-                      type="number"
+                      type="text"
+                      mask="99"
                     />
                     <small>
                       {getErrorMessage('expireMonth', form.errors.expireMonth)}
@@ -208,13 +212,14 @@ const Checkout = () => {
                   </li>
                   <li>
                     <label htmlFor="expireYear">Ano do vencimento</label>
-                    <input
+                    <InputMask
                       value={form.values.expireYear}
                       onChange={form.handleChange}
                       onBlur={form.handleBlur}
                       name="expireYear"
                       id="expireYear"
-                      type="number"
+                      type="text"
+                      mask="9999"
                     />
                     <small>
                       {getErrorMessage('expireYear', form.errors.expireYear)}

@@ -33,6 +33,7 @@ export const CartContainer = styled.div`
 export const Sidebar = styled.aside`
   color: ${colors.white};
   margin: 0;
+  max-width: 350px;
   z-index: 1;
   background-color: ${colors.pink};
   padding: 30px 14px 0 14px;
